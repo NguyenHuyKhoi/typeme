@@ -41,7 +41,7 @@ class ContentCard extends Component{
         <div style={{width: '100%',height:'100%',display:'flex',
                 flexDirection:'column',alignItems: 'center',backgroundColor: '#302585'}}>
 
-                <WordListComponent  />
+                {/* <WordListComponent  /> */}
                 
             </div>
         )
@@ -70,8 +70,7 @@ export default class PracticeComponent extends Component {
                 </div>
 
                 <div style={{width: '100%',display:'flex',flexDirection:'row',backgroundColor: '#929454',
-                        justifyContent:'space-between',
-                        height: '65%'}}>
+                    justifyContent:'center'}}>
 
                     <KeyboardComponent/>
 

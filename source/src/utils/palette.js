@@ -5,6 +5,8 @@ export const BLUE_2='#F0F2FD'
 export const WHITE='#ffffff';
 export const BLACK='#000000';
 
+export const INDIGO_0='#141A33'
+
 export const YELLOW_1='#FEBE42';
 export const YELLOW_2='#F1D7A5'
 
