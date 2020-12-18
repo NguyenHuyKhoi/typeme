@@ -6,11 +6,11 @@ import HeaderListComponent from './common/header_list.component'
 export default class UserListComponent extends Component {
 
     render(){
-        const users=this.props.users!==undefined?this.props.users:[];
+        const users=this.props.users;
         return (
             <div style={styles.container}>
                 
-                <HeaderListComponent title='users' is_sort={true}/>
+                <HeaderListComponent title='Danh sách người chơi' right_title={'Vào trận trong : '+this.props.time_remain +' s'}/>
                 
 
                 <div style={styles.body}>

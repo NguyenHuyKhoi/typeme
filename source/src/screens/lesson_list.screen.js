@@ -9,10 +9,10 @@ import FeedbackListComponent from '../components/room_list.component';
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
-import LessionListComponent from '../components/lession_list.component';
+import LessonListComponent from '../components/lesson_list.component';
+import {BODY} from '../utils/constants'
 
-
-export default class LessionScreen extends Component {
+export default class LessonListScreen extends Component {
 
     render(){
         return (
@@ -21,7 +21,6 @@ export default class LessionScreen extends Component {
                 <FeedbackModal
                       is_open={false} />
 
-                {/* header */}
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
@@ -29,15 +28,13 @@ export default class LessionScreen extends Component {
                     
                     <div style={{flex:1}}/>
 
-                    <div style={{flex:6}}>
-                            <LessionListComponent/>
+                    <div style={{flex:BODY.FLEX}}>
+                            <LessonListComponent/>
                     </div>
                  
                     <div style={{flex:1}}/>
                 </div>
 
-
-                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
@@ -57,6 +54,6 @@ const styles={
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
     }
 }

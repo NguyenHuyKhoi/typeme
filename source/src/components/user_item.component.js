@@ -13,26 +13,19 @@ export default class UserItemComponent extends Component {
         return (
             <div style={styles.container}>
             
-                <img src={user.avatar}  style={styles.avatar}/>
+                <img src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random()*100)}.jpg`}  style={styles.avatar}/>
 
                 <text style={styles.user_name}>
                     {user.name}
                 </text>
 
-                {/* <text style={styles.user_tagline}>
-                    {user.tagline}
-                </text> */}
-
                 <div style={styles.fields}>
                     <InforsBarComponent fields={[
                         {
-                            key:'Hourly Rate',value:user.hourly_rate
+                            key:'Đã chơi',value:user.games+' trận'
                         },
                         {
-                            key:'Done Tasks',value:user.done_tasks
-                        },
-                        {
-                            key:'Income($)',value:user.income
+                            key:'Tỉ lệ Thắng',value:user.win_rate 
                         }
                     ]}/>
                 </div>
@@ -58,7 +51,7 @@ export default class UserItemComponent extends Component {
 const styles={
     container:{
         width:'20vw',
-        height:180,
+        height:160,
         backgroundColor: WHITE,  
         boxShadow:'5px 5px 5px 5px #707070',
         padding:20, 
@@ -80,7 +73,7 @@ const styles={
     },
     fields:{
         width: '100%',
-        marginTop:20
+        marginTop:10
     },
     btn_container:{
         width: '100%',

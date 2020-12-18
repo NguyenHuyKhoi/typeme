@@ -48,7 +48,7 @@ class Item extends Component{
     }
 }
 
-export default class WordListComponent extends Component {
+export default class SingleWordListComponent extends Component {
     constructor(props){
         super(props);
     }   

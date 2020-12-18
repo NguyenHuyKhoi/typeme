@@ -4,8 +4,9 @@ import React, {Component} from 'react'
 import HeaderListComponent from './common/header_list.component'
 import PaginationComponent from './common/pagination.component';
 import FeedbackItemComponent from './feedback_item.component';
-import TaskItemComponent from './feedback_item.component'
 
+import sample_db from '../sample_db/sample_db.json'
+const feedbacks=sample_db.feedbacks;
 export default class FeedbackListComponent extends Component {
 
     render(){
@@ -13,14 +14,14 @@ export default class FeedbackListComponent extends Component {
 
             <div style={styles.container}>
               
-                <HeaderListComponent title='Tasks' is_sort={true}/>
+                <HeaderListComponent title='Các góp ý từ người dùng'/>
                 
         
 
                 <div style={styles.body}>
                 {
-                    [1,2,3,4].map((item,index)=>
-                        <FeedbackItemComponent/>
+                    feedbacks.map((item,index)=>
+                        <FeedbackItemComponent feedback={item} />
                     )
                 }
                 </div>
@@ -37,8 +38,7 @@ const styles={
     container:{
         width:'100%',
         display:'flex',
-        flexDirection: 'column',
-        backgroundColor: '#974589'
+        flexDirection: 'column'
     },
     body:{
         width:'100%',

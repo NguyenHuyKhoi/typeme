@@ -1,0 +1,191 @@
+{
+    "feedbacks":[
+        {
+            "username":"Nguyễn Huy Khôi",
+            "content":"Mình nghĩ chức năng gợi ý từ nên làm cho người dùng dễ chú ý hơn, đồng thời nên làm cho chế độ thực hành màu sắc hơn, tại mỗi màu đơn điệu quá ",
+            "time":"08:30 12/10/2020",
+            "tags":[
+                "Chức năng","Giao diện"
+            ],
+            "votes":1223
+        },
+        {
+            "username":"Đỗ Quang Hiếu",
+            "content":"Ứng dụng khas hay rồi đó, tuy nhiên nên sắp xếp các phần lý thuyết cho rõ ràng hơn, phần nhiều lý thuyết quá, phần có mỗi vài ý. Với lại phần giao diện cho cái đó làm cho nó sinh động lên nào!",
+            "time":"18:20 12/02/2020",
+            "tags":[
+                "Chức năng","Trải nghiệm","Hiệu năng"
+            ]
+        },
+        {
+            "username":"Lê Anh Tuấn",
+            "content":"Phần thống kê có nhiều tham số quá, khó theo dõi, làm ơn làm đơn giản hơn đi,  nhìn rối não quá!!!",
+            "time":"02:20 06/06/2020",
+            "tags":[
+                "Trải nghiệm","Bố cục","Màu sắc"
+            ],
+            "votes":442
+        },
+        {
+            "username":"Nông Thanh Đạt",
+            "content":"Mình nghĩ chức năng gợi ý từPhần thi đấu quá thú vị đi, mong có nhiều update cho phần này, đặc biệt nên cho phép mời người dùng để thách đấu đi  ,cũng như kết bạn với mấy bạn pro nữa. Mà nên cho theo dõi lịch sử thi đấu rõ ràng hơn đi. Ngắn gọn quá nên làm cho người dùng dễ chú ý hơn, đồng thời nên làm cho chế độ thực hành màu sắc hơn, tại mỗi màu đơn điệu quá",
+            "time":"19:13 20/02/2020",
+            "tags":[
+                "Trải nghiệm","Lỗi"
+            ],
+            "votes":352
+        }
+
+    ],
+    "rooms":[
+        {
+            "name":"Giao lưu tốc ký",
+            "owner":"Đỗ Quang Hiếu",
+            "content":"Đây là phòng chơi mang tính chất giao lưu giữa các người chơi với nhau, không đặt nặng kết quả.",
+            "time_start":"20 phút nữa",
+            "max_users":5,
+            "cur_users":2
+        },
+        {
+            "name":"Tìm người thi đấu",
+            "owner":"Nông Thanh Đạt",
+            "content":"Mình vừa mới luyện tập xong hết các phần, muốn tìm các bạn newbie vào giao lưu. ",
+            "time_start":"3 phút nữa",
+            "max_users":10,
+            "cur_users":5
+        },
+        {
+            "name":"Chỉ dành cho master",
+            "owner":"Lê Anh Tuấn",
+            "content":"Các bạn tự tin mình đạt trên 200 wpm thì vào đây chơi với mình, còn lại thì hẹn lần sau nhé.",
+            "time_start":"12 phút nữa",
+            "max_users":4,
+            "cur_users":1
+        },
+        {
+            "name":"Solo",
+            "owner":"Nguyễn Huy Khôi",
+            "content":"Bạn nào chơi với mình thắng mình bao hẳn chầu ăn, chấp nửa kèo.",
+            "time_start":"3 phút nữa",
+            "max_users":2,
+            "cur_users":1
+        },
+        {
+            "name":"Càng đông càng vui",
+            "owner":"Anh Sơn",
+            "content":"Tiếp hết các thể loại, từ newbie đến master ,chấp hết !!!",
+            "time_start":"5 phút nữa",
+            "max_users":10,
+            "cur_users":2
+        }
+    ],
+    "users":[
+        {
+            "name":"Lê Đình Tùng",
+            "games":234,
+            "win_rate":"50%"
+        },
+        {
+            "name":"Phạm Bá Hưng",
+            "games":10,
+            "win_rate":"25%"
+        },
+        {
+            "name":"Hồ Lê Phong",
+            "games":350,
+            "win_rate":"10%"
+        },
+        {
+            "name":"Phạm Bá Vương",
+            "games":5,
+            "win_rate":"100%"
+        },
+        {
+            "name":"Lê Hải Hậu",
+            "games":24,
+            "win_rate":"50%"
+        },
+        {
+            "name":"Lê Đình Phong",
+            "games":12,
+            "win_rate":"60%"
+        }
+
+    ],
+    "lessons":[
+        {
+            "subject":"Âm đầu",
+            "title":"Nhóm các phụ âm có cùng dạng chữ, cùng phát âm với phím tốc kí và không cần ghi nhớ (P1)",
+            "rules":5,
+            "level":"Dễ"
+        },
+        {
+            "subject":"Âm đầu",
+            "title":"Nhóm các phụ âm có cùng dạng chữ, cùng phát âm với phím tốc kí và không cần ghi nhớ (P2)",
+            "rules":6,
+            "level":"Dễ"
+        },
+        {
+            "subject":"Âm đầu",
+            "title":"Nhóm các phụ âm có cách phát âm giống nhau hoặc gần nhau",
+            "rules":8,
+            "level":"Trung bình"
+        }, {
+            "subject":"Âm đầu",
+            "title":"Nhóm các phụ âm có dạng chữ viết gần giống nhau",
+            "rules":6,
+            "level":"Dễ"
+        
+        },
+        {
+            "subject":"Âm đầu",
+            "title":"Nhóm các phụ âm ngoại lệ",
+            "rules":3,
+            "level":"Dễ"
+        },
+        {
+            "subject":"Âm chính",
+            "title":"Nhóm các dấu thanh có đường nét thẳng, 1 hướng và Nhóm các nguyên âm không có quy tắc ghi nhớ",
+            "rules":3,
+            "level":"Dễ"
+        },
+        {
+            "subject":"Âm chỉnh",
+            "title":"Nhóm các nguyên âm có cùng dạng chữ, cùng phát âm với phím tốc kí và không cần ghi nhớ",
+            "rules":6,
+            "level":"Trung bình"
+        },
+        {
+            "subject":"Âm chỉnh",
+            "title":"Nhóm các nguyên âm ngắn sử dụng * cho các nguyên âm ngắn và Nhóm các nguyên âm không có quy tắc ghi nhớ ",
+            "rules":7,
+            "level":"Trung bình"
+        },
+        {
+            "subject":"Âm chỉnh",
+            "title":"Nhóm các âm đệm + nguyên âm không có cùng dạng chữ với phím tốc kí cần ghi nhớ",
+            "rules":8,
+            "level":"Khó"
+        },
+        {
+            "subject":"Âm cuối",
+            "title":"Nhóm các phụ âm có cùng dạng chữ với phím tốc kí và không cần ghi nhớ và nhóm các phụ âm có cách phát âm gần nhau",
+            "rules":5,
+            "level":"Dễ"
+        },
+        {
+            "subject":"Âm cuối",
+            "title":"Nhóm các phụ âm có cách viết gần nhau và Nhóm các phụ âm không có điểm ghi nhớ",
+            "rules":7,
+            "level":"Trung bình"
+        },
+        {
+            "subject":"Gõ số và xóa",
+            "title":"Quy tắc gõ số",
+            "rules":4,
+            "level":"Dễ"
+        }
+
+        
+    ]
+}

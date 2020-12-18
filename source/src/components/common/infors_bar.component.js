@@ -33,7 +33,7 @@ const styles ={
         width:'100%',
         display:'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center'
     },
     item_container:{

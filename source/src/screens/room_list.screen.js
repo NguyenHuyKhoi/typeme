@@ -7,8 +7,9 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 import FeedbackListComponent from '../components/room_list.component';
 
 import api from '../sample_db/fake_api_responses.json'
-import { TEXT_SIZES } from '../utils/constants';
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
+import RoomListComponent from '../components/room_list.component';
 
 
 export default class RoomListScreen extends Component {
@@ -20,7 +21,6 @@ export default class RoomListScreen extends Component {
                 <FeedbackModal
                       is_open={false} />
 
-                {/* header */}
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
@@ -28,8 +28,8 @@ export default class RoomListScreen extends Component {
                     
                     <div style={{flex:1}}/>
 
-                    <div style={{flex:6}}>
-                            <FeedbackListComponent/>
+                    <div style={{flex:BODY.FLEX}}>
+                            <RoomListComponent/>
                     </div>
                  
                     <div style={{flex:1}}/>
@@ -56,6 +56,6 @@ const styles={
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
     }
 }

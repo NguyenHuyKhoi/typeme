@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 
 import SettingAccountComponent from '../components/setting/setting_account.component'
 import SettingProfileCompanyComponent from '../components/setting/setting_profile_company.component'
-import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD } from '../utils/constants'
-import { GRAY_2, GRAY_6,WHITE } from '../utils/palette'
+import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, BODY } from '../utils/constants'
+import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
 import { Link } from 'react-router-dom'
@@ -29,9 +29,9 @@ export default class EditorScreen extends Component {
                     <div style={{flex:1}}/>
                     <div style={styles.content_body}>
                 
-                        <HeaderListComponent title='Editor'/>
+                        <HeaderListComponent title='Soạn thảo'/>
            
-                        <div style={{flexDirection:'row',height: '100%',display:'flex',
+                        <div style={{flexDirection:'row',height: '80%',display:'flex',
                                 backgroundColor: WHITE,padding:20,
                                 boxShadow: '5px 5px 5px 5px #707070'}}>
                             <div style={{width: '90%',height:'100%'}}>
@@ -39,20 +39,21 @@ export default class EditorScreen extends Component {
                             </div>
                             <div style={{width: '20%',height: '100%',display:'flex',
                                 flexDirection:'column',alignItems: 'center'}}>
-                                <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent label='Tra từ'/>
-                                </div>
+
                                 <div style={{width: '80%',marginTop:20}}>
                                     <ButtonComponent label='Sao chép'/>
                                 </div>
-                                <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent label='Xóa hết'/>
-                                </div>
+                             
                                 <div style={{width: '80%',marginTop:20}}>
                                     <ButtonComponent label='Lưu nháp'/>
                                 </div>
+
                                 <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent label='Tải xuống '/>
+                                    <ButtonComponent label='Tra từ' color={GREEN_1}/>
+                                </div>
+
+                                <div style={{width: '80%',marginTop:20}}>
+                                    <ButtonComponent label='Xóa hết' color={RED_1}/>
                                 </div>
                             </div>
                         </div>
@@ -82,10 +83,9 @@ const styles={
         backgroundColor: GRAY_6
     },
     content_body:{
-
+        flex:BODY.FLEX,
         display:'flex',
-        width: '60vw',
-        height:'65vh',
+        height:'75vh',
         flexDirection: 'column'
     },
     body:{
@@ -93,7 +93,7 @@ const styles={
         height: '100%',
         display:'flex',
         flexDirection: 'row',
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
     }
 }
 

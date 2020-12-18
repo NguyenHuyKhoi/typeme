@@ -37,7 +37,6 @@ const styles={
         flexDirection: 'column'
     },
     textarea:{
-        marginTop:20,
         flex:1,
         padding:10,
         backgroundColor: WHITE,

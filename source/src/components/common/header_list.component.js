@@ -6,28 +6,19 @@ import LabeledSelectedInputComponent from '../input/labeled_selected_input.compo
 export default class HeaderListComponent extends Component {
     render(){
      
-        const height =this.props.height!==undefined?this.props.height:60;
-        console.log('height_list :',height)
-        const filter=this.props.filter!==undefined?this.props.filter:null
-
-        console.log('filter :',filter)
+        const height =50;
+        const title=this.props.title!==undefined?this.props.title:'';
+        const right_title=this.props.right_title!==undefined?this.props.right_title:'';
         return (
             <div style={{...styles.container,height:height}}>
 
                 <text style={styles.title}>
-                    {this.props.title}
+                    {title}
                 </text>
 
-                {
-                    filter!==null?
-                    <div style={styles.body}>
-                        <LabeledSelectedInputComponent 
-                            hide_label={true}/>
-                    </div>
-                   
-                    :
-                    null
-                }
+                <text style={styles.title}>
+                    {right_title}
+                </text>
                 
             </div>
                      
@@ -48,7 +39,8 @@ const styles={
     title:{
         fontSize:TEXT_SIZES.BIG,
         color:WHITE,
-        marginLeft:20
+        marginLeft:20,
+        marginRight: 20
     },
     body:{
         width:'20%',

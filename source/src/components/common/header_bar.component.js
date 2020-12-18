@@ -19,7 +19,7 @@ const logo123='FaTwitter'
 const headerBarItems=[
     {
         label:'Luyện gõ',
-        screen:routePaths.PRACTICE,
+        screen:routePaths.LESSON_LIST,
     },
     {
         label:'Soạn thảo',
@@ -98,34 +98,6 @@ class HeaderBarComponent extends Component {
                 </div>
 
     
-                
-                {/* <div style={styles.col3}>
-                    {
-                    user_infor!=={} && user_infor.session_id!==undefined?
-                        <Link 
-                            to ={user_infor.user_type==='admin'?
-                                routePaths.ADMIN_USER_LIST
-                                :
-                                routePaths.DASHBOARD_TASK_LIST
-                            }
-                            style={styles.my_account_container}>
-                            <img src='https://randomuser.me/api/portraits/women/25.jpg' 
-                                style={styles.avatar}/>
-                            <text 
-                                style={styles.my_account}>
-                                    My Account
-                            </text>
-                        </Link>
-                    :
-                        <text 
-                            onClick={this.openAuthModal}
-                            style={styles.login}>
-                            Login/Register  
-                        </text>
-                    }   
-                        
-
-                </div> */}
             
             </div>
             

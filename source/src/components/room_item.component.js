@@ -10,7 +10,7 @@ import WordListComponent from './word_list.component'
 export default class RoomItemComponent extends Component {
 
     render(){
-        const task=this.props.task;
+        const room=this.props.room;
         return (
             
             <div style={styles.container}>
@@ -19,20 +19,23 @@ export default class RoomItemComponent extends Component {
 
                     <div style={{flex:3,display:'flex',flexDirection:'column'}}>
                         <text style={styles.task_name}>
-                            Nguyen Huy Khoi
+                            {room.name}
                         </text>
 
                         <text style={styles.task_time}>
-                            12/11/2020
+                            {room.owner}
                         </text>
 
                         <text style={styles.task_description}>
-                        Tiếng kêu như ‘trẻ con khóc’ của mèo vào ban đêm có liên quan đến hoạt động giao phối của loài vật này. Đối với loài mèo, khi màn đêm buông xuống, mọi vật yên tĩnh và không có nhiều tác động của con người, chính là thời điểm thích hợp nhất để mèo giao phối.
+                            {room.content}
                         </text>
                     </div>
 
                     <div style={styles.skills_container}>
-                        <WordListComponent/>
+                        <WordListComponent list={[
+                            "Bắt đầu: "+room.time_start,
+                            "Số người chơi: "+room.cur_users+'/'+room.max_users
+                            ]}/>
                     </div>
                     
                 
@@ -44,7 +47,7 @@ export default class RoomItemComponent extends Component {
                     <Link  
                         to={routePaths.ROOM_DETAIL}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Bid Now'/>
+                        <ButtonComponent label='Vào chơi'/>
                     </Link>
                         
                 </div>
@@ -61,7 +64,7 @@ export default class RoomItemComponent extends Component {
 const styles={
     container:{
         width:'100%',
-        height:250,
+        height:180,
         backgroundColor: WHITE,
         boxShadow:'3px 3px 3px 3px #707070',
         marginTop:40,            

@@ -104,7 +104,7 @@ export default class PaginationComponent extends Component {
 
 const styles={
     container:{
-        marginTop:10,
+        marginTop:30,
         display:'flex',
         paddingBottom:40,
         flexDirection: 'row',

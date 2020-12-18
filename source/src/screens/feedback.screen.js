@@ -4,10 +4,10 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import FeedbackListComponent from '../components/room_list.component';
+import FeedbackListComponent from '../components/feedback_list.component';
 
 import api from '../sample_db/fake_api_responses.json'
-import { TEXT_SIZES } from '../utils/constants';
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 
 
@@ -28,7 +28,7 @@ export default class FeedbackScreen extends Component {
                     
                     <div style={{flex:1}}/>
 
-                    <div style={{flex:8}}>
+                    <div style={{flex:BODY.FLEX}}>
                             <FeedbackListComponent/>
                     </div>
                  
@@ -56,6 +56,6 @@ const styles={
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
     }
 }

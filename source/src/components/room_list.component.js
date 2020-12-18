@@ -5,7 +5,9 @@ import HeaderListComponent from './common/header_list.component'
 import PaginationComponent from './common/pagination.component';
 import FeedbackItemComponent from './feedback_item.component';
 import RoomItemComponent from './room_item.component'
+import sample_db from '../sample_db/sample_db.json'
 
+const rooms=sample_db.rooms;
 export default class RoomListComponent extends Component {
 
     render(){
@@ -13,14 +15,14 @@ export default class RoomListComponent extends Component {
 
             <div style={styles.container}>
               
-                <HeaderListComponent title='Tasks' is_sort={true}/>
+                <HeaderListComponent title='Danh sách phòng chơi'/>
                 
         
 
                 <div style={styles.body}>
                 {
-                    [1,2,3,4].map((item,index)=>
-                        <RoomItemComponent/>
+                    rooms.map((item,index)=>
+                        <RoomItemComponent room={item}/>
                     )
                 }
                 </div>
@@ -37,8 +39,7 @@ const styles={
     container:{
         width:'100%',
         display:'flex',
-        flexDirection: 'column',
-        backgroundColor: '#974589'
+        flexDirection: 'column'
     },
     body:{
         width:'100%',

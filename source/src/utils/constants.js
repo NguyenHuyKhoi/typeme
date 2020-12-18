@@ -1,7 +1,9 @@
 
 import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,
     FaAccessibleIcon,FaBitcoin, FaHubspot, 
-    FaPaypal, FaBroom,FaUser,FaTasks,FaFacebookMessenger,FaStreetView,FaSignOutAlt} from "react-icons/fa"
+    FaPaypal, FaBroom,FaUser,FaTasks,FaFacebookMessenger,FaStreetView,FaSignOutAlt,
+    FaArrowDown,
+    FaArrowUp} from "react-icons/fa"
 export const BASE_URL='https://localhost:3000'
 export const bullshitIcons={
     home :<FaHome/>,
@@ -20,7 +22,10 @@ export const bullshitIcons={
     chat:<FaFacebookMessenger/>,
     setting:<FaStreetView/>,
     payment:<FaPaypal/>,
-    logout:<FaSignOutAlt/>
+    logout:<FaSignOutAlt/>,
+
+    up:<FaArrowUp/>,
+    down:<FaArrowDown/>
 
     
     
@@ -34,13 +39,18 @@ export const routePaths={
     ROOM_DETAIL:'/room/detail',
     ROOM_RESULT:'/room/result',
     SETTING:'/setting',
-    LESSION_LIST:'/lession/list',
+    LESSON_LIST:'/lesson/list',
     EDITOR:'/editor'
 }
 
 
 // sidebar : flex=1,  body : flex=3
 export const SIDEBAR_RATIO=4
+
+export const BODY={
+    FLEX:5,
+    PADDING_TOP:40
+}
 
 export const PADDING_BODY_DASHBOARD=50;
 

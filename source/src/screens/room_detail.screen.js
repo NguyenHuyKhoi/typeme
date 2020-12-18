@@ -5,21 +5,31 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 
-import { TEXT_SIZES } from '../utils/constants';
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
-import api from '../sample_db/fake_api_responses.json'
+
+import sample_db from '../sample_db/sample_db.json'
+const users=sample_db.users;
 
 export default class RoomDetailScreen extends Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            time_remin:60
+        }
+    };
+
+
     render(){
+        console.log('time :',this.state.time_remin)
         return (
 
             <div style={styles.container}>
                 <FeedbackModal
                       is_open={false} />
 
-                {/* header */}
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
@@ -27,15 +37,14 @@ export default class RoomDetailScreen extends Component {
                     
                     <div style={{flex:1}}/>
 
-                    <div style={{flex:6}}>
-                            <UserListComponent users={api.search_freelancers}/>
+                    <div style={{flex:BODY.FLEX}}>
+                            <UserListComponent users={users} time_remain={this.state.time_remin}/>
                     </div>
                  
                     <div style={{flex:1}}/>
                 </div>
 
 
-                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
@@ -55,6 +64,6 @@ const styles={
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
     }
 }

@@ -3,14 +3,26 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from './../utils/constants'
 import { collapseText } from './../utils/helper'
-import { BLACK, GRAY_2, GRAY_5, WHITE } from './../utils/palette'
+import { BLACK, BLUE_1, GRAY_2, GRAY_5, RED_1, WHITE } from './../utils/palette'
 import ButtonComponent from './common/button.component'
+import CustomIconComponent from './common/custom_icon.component'
 import WordListComponent from './word_list.component'
-// import SkillsListComponent from '../common/skills_list.component'
+
 export default class FeedbackItemComponent extends Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            votes:this.props.feedback.votes
+        }
+    };
+    
+
     render(){
-        const task=this.props.task;
+        const feedback=this.props.feedback;
+
+        const votes=this.state.votes;
+        console.log('feedback :',feedback)
         return (
             
             <div style={styles.container}>
@@ -19,20 +31,20 @@ export default class FeedbackItemComponent extends Component {
 
                     <div style={{flex:3,display:'flex',flexDirection:'column'}}>
                         <text style={styles.task_name}>
-                            Nguyen Huy Khoi
+                            {feedback.username}
                         </text>
 
                         <text style={styles.task_time}>
-                            12/11/2020
+                            {feedback.time}
                         </text>
 
                         <text style={styles.task_description}>
-                        Tiếng kêu như ‘trẻ con khóc’ của mèo vào ban đêm có liên quan đến hoạt động giao phối của loài vật này. Đối với loài mèo, khi màn đêm buông xuống, mọi vật yên tĩnh và không có nhiều tác động của con người, chính là thời điểm thích hợp nhất để mèo giao phối.
+                            {feedback.content}
                         </text>
                     </div>
 
                     <div style={styles.skills_container}>
-                        <WordListComponent/>
+                        <WordListComponent label="Tags" list={feedback.tags}/>
                     </div>
                     
                 
@@ -40,11 +52,28 @@ export default class FeedbackItemComponent extends Component {
 
                 <div style={styles.col2}>
 
+                    <div style={{width: '80%',display:'flex',flexDirection:'row',
+                        alignItems: 'center',justifyContent:'space-around'}}>
+                        
+                        <div onClick={()=>this.setState({
+                                votes:votes+1
+                            })}>
+                            <CustomIconComponent name='up' color={BLUE_1} size={40} />
+                        </div>
+                       
+                        <text style={styles.huge_text}>
+                            {votes}
+                        </text>
 
-                    <Link  
-                        style={styles.btn_container}>
-                        <ButtonComponent label='Bid Now'/>
-                    </Link>
+                        <div onClick={()=>this.setState({
+                                votes:votes-1
+                            })}>
+
+                            <CustomIconComponent 
+                                name='down' color={RED_1}  size={40}/>
+                        </div>
+                    </div>
+                  
                         
                 </div>
 
@@ -80,6 +109,10 @@ const styles={
     task_time:{
         fontSize:TEXT_SIZES.SMALL,
         color:GRAY_2
+    },
+    huge_text:{
+        fontSize: TEXT_SIZES.HUGE,
+        color:BLACK
     },
     task_description:{
         marginTop:10,
