@@ -89,9 +89,9 @@ class HeaderBarComponent extends Component {
                     {
                         headerBarItems.map((item)=>(
                             <Link to ={item.screen}
-                            style={styles.item}>
+                                style={styles.item}>
                                 {item.label}
-                         </Link>
+                             </Link>
                         ))
                     }
 

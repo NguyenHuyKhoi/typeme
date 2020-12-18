@@ -2,21 +2,26 @@
 import React, {Component} from 'react'
 import UserItemComponent from './user_item.component'
 import HeaderListComponent from './common/header_list.component'
+import { routePaths } from '../utils/constants';
 
 export default class UserListComponent extends Component {
 
     render(){
         const users=this.props.users;
+        const is_result=this.props.is_result;
         return (
             <div style={styles.container}>
                 
-                <HeaderListComponent title='Danh sách người chơi' right_title={'Vào trận trong : '+this.props.time_remain +' s'}/>
+                <HeaderListComponent 
+                    title='Danh sách người chơi' 
+                    des_screen={routePaths.ROOM_PLAY}
+                    right_title={'Vào trận trong : '+this.props.time_remain +' s'}/>
                 
 
                 <div style={styles.body}>
                 {
                     users.map((item,index)=>
-                        <UserItemComponent user={item} key={''+index}/>
+                        <UserItemComponent is_result={is_result} user={item} key={''+index}/>
                     )
                 }
                 </div>

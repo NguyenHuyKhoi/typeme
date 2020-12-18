@@ -3,32 +3,6 @@ import React, {Component} from 'react'
 import { TEXT_SIZES } from '../utils/constants'
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_5, WHITE } from '../utils/palette'
 
-const wordsP=[
-    {
-
-        name: "Account Manager",
-  
-    },
-    {
-      
-        name: "Cisco",
-
-    },
-    {
-        
-        name: "Agile CRM",
-    
-    },
-    {
-       
-        name: "Billing",
-      
-    },
-    {
-      
-        name: "Zendesk",
-    }
-]
 
 class Item extends Component{
     render(){
@@ -36,7 +10,7 @@ class Item extends Component{
         const is_picked=this.props.is_picked;
         return (
             <div
-               // onClick={this.props.onClick} 
+                onClick={this.props.onClick} 
                 style={{...styles.item_container,
                     backgroundColor: is_picked?BLUE_1:GRAY_3}}>
             <text style={{...styles.item_name,
@@ -51,15 +25,39 @@ class Item extends Component{
 export default class WordListComponent extends Component {
     constructor(props){
         super(props);
+        this.state={
+            picked_items:[],
+        };
     }   
 
 
+    isPicked=(i)=>{
+        //only save skill_name on picked_skills
+        return (this.state.picked_items.filter(item=>item===i).length)>0;
+    }
+
+    clickItem= (i)=>{
+
+
+        let arr=this.state.picked_items;
+        // skill_name is not on picked_skills
+        if (this.isPicked(i)){
+            arr=arr.filter(item=>item!==i);
+        }
+        else{
+            arr.push(i)
+        };
+        this.setState({
+            picked_items:arr
+        })
+
+    }
 
     render(){
         const label=this.props.label!==undefined?this.props.label:'';
         const list=this.props.list;
+        const disable=this.props.disable!==undefined?this.props.disable:true
         return (
-    
 
             <div style={styles.container}>
                     <text style={styles.label}>
@@ -70,10 +68,12 @@ export default class WordListComponent extends Component {
                         {
                             list.map((item,index)=>{
                            //     console.log('Item in SkillPicker :',item)
-                                const is_picked=false;
+                                const is_picked=disable?false: this.isPicked(item);
                                 return (
                                     <Item
-
+                                        onClick={()=>{
+                                            if (!disable) this.clickItem(item)
+                                        }} 
                                         item={item}
                                         key={''+index}
                                         is_picked={is_picked}

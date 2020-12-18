@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import SettingAccountComponent from '../components/setting/setting_account.component'
 import SettingProfileCompanyComponent from '../components/setting/setting_profile_company.component'
 import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, BODY } from '../utils/constants'
-import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE } from '../utils/palette'
+import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE, YELLOW_1 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
 import { Link } from 'react-router-dom'
@@ -45,7 +45,9 @@ export default class EditorScreen extends Component {
                                 </div>
                              
                                 <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent label='Lưu nháp'/>
+                                    <ButtonComponent 
+                                        onClick={()=>alert('Đã lưu nháp vào tài khoản của bạn.')}
+                                        label='Lưu nháp' color={YELLOW_1}/>
                                 </div>
 
                                 <div style={{width: '80%',marginTop:20}}>
@@ -53,7 +55,9 @@ export default class EditorScreen extends Component {
                                 </div>
 
                                 <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent label='Xóa hết' color={RED_1}/>
+                                    <ButtonComponent
+                                     onClick={()=>alert('Đã lưu nháp vào tài khoản của bạn.')}
+                                     label='Xóa hết' color={RED_1}/>
                                 </div>
                             </div>
                         </div>

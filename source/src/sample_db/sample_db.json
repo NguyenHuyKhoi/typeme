@@ -15,7 +15,8 @@
             "time":"18:20 12/02/2020",
             "tags":[
                 "Chức năng","Trải nghiệm","Hiệu năng"
-            ]
+            ],
+            "votes":660
         },
         {
             "username":"Lê Anh Tuấn",
@@ -28,7 +29,7 @@
         },
         {
             "username":"Nông Thanh Đạt",
-            "content":"Mình nghĩ chức năng gợi ý từPhần thi đấu quá thú vị đi, mong có nhiều update cho phần này, đặc biệt nên cho phép mời người dùng để thách đấu đi  ,cũng như kết bạn với mấy bạn pro nữa. Mà nên cho theo dõi lịch sử thi đấu rõ ràng hơn đi. Ngắn gọn quá nên làm cho người dùng dễ chú ý hơn, đồng thời nên làm cho chế độ thực hành màu sắc hơn, tại mỗi màu đơn điệu quá",
+            "content":"Mình nghĩ chức năng gợi ý từPhần thi đấu quá thú vị đi, mong có nhiều update cho phần này, đặc biệt nên cho phép mời người dùng để thách đấu đi  ,cũng như kết bạn với mấy bạn pro nữa. Mà nên cho theo dõi lịch sử thi đấu rõ ràng hơn đi.",
             "time":"19:13 20/02/2020",
             "tags":[
                 "Trải nghiệm","Lỗi"
@@ -44,15 +45,23 @@
             "content":"Đây là phòng chơi mang tính chất giao lưu giữa các người chơi với nhau, không đặt nặng kết quả.",
             "time_start":"20 phút nữa",
             "max_users":5,
-            "cur_users":2
+            "cur_users":2,
+            "time":"02:20 06/06/2020",
+            "wpm":"130",
+            "accuracy":"45%",
+            "way":"1200m"
         },
         {
             "name":"Tìm người thi đấu",
             "owner":"Nông Thanh Đạt",
             "content":"Mình vừa mới luyện tập xong hết các phần, muốn tìm các bạn newbie vào giao lưu. ",
             "time_start":"3 phút nữa",
-            "max_users":10,
-            "cur_users":5
+            "max_users":7,
+            "cur_users":5,
+            "time":"02:20 06/06/2020",
+            "wpm":"130",
+            "accuracy":"45%",
+            "way":"1200m"
         },
         {
             "name":"Chỉ dành cho master",
@@ -60,7 +69,11 @@
             "content":"Các bạn tự tin mình đạt trên 200 wpm thì vào đây chơi với mình, còn lại thì hẹn lần sau nhé.",
             "time_start":"12 phút nữa",
             "max_users":4,
-            "cur_users":1
+            "cur_users":1,
+            "time":"02:20 06/08/2020",
+            "wpm":"230",
+            "accuracy":"85%",
+            "way":"2200m"
         },
         {
             "name":"Solo",
@@ -68,47 +81,74 @@
             "content":"Bạn nào chơi với mình thắng mình bao hẳn chầu ăn, chấp nửa kèo.",
             "time_start":"3 phút nữa",
             "max_users":2,
-            "cur_users":1
+            "cur_users":1,
+            "time":"12:20 16/06/2020",
+            "wpm":"150",
+            "accuracy":"40%",
+            "way":"500m"
         },
         {
             "name":"Càng đông càng vui",
             "owner":"Anh Sơn",
             "content":"Tiếp hết các thể loại, từ newbie đến master ,chấp hết !!!",
             "time_start":"5 phút nữa",
-            "max_users":10,
-            "cur_users":2
+            "max_users":8,
+            "cur_users":2,
+            "time":"12:20 06/08/2020",
+            "wpm":"150",
+            "accuracy":"60%",
+            "way":"1500m"
         }
     ],
     "users":[
         {
             "name":"Lê Đình Tùng",
             "games":234,
-            "win_rate":"50%"
+            "win_rate":"50%",
+            "rank":1,
+            "wpm":200,
+            "accuracy":"100%"
         },
         {
             "name":"Phạm Bá Hưng",
             "games":10,
-            "win_rate":"25%"
+            "win_rate":"25%",
+            "rank":2,
+            "wpm":189,
+            "accuracy":"75%"
         },
         {
             "name":"Hồ Lê Phong",
             "games":350,
-            "win_rate":"10%"
+            "win_rate":"10%",
+            "rank":3,
+            "wpm":150,
+            "accuracy":"75%"
+
         },
         {
             "name":"Phạm Bá Vương",
             "games":5,
-            "win_rate":"100%"
+            "win_rate":"100%",
+            "rank":4,
+            "wpm":120,
+            "accuracy":"67%"
         },
         {
             "name":"Lê Hải Hậu",
             "games":24,
-            "win_rate":"50%"
+            "win_rate":"50%",
+            "rank":5,
+            "wpm":100,
+            "accuracy":"45%"
         },
         {
             "name":"Lê Đình Phong",
             "games":12,
-            "win_rate":"60%"
+            "win_rate":"60%",
+            "rank":6,
+            "wpm":60,
+            "accuracy":"15%"
         }
 
     ],
@@ -187,5 +227,32 @@
         }
 
         
+    ],
+    "practice_contents":[
+        {
+            "title":"Luyện gõ phím",
+            "content":"ST HS NG TK SK HW SI NG GK TP SI UO EA UA"
+        },
+        {
+            "title":"Luyện gõ âm",
+            "content":"s t k c h r k h t s r t k r s",
+            "steno_content":"S T K K H R K H T S R T K R S"
+        },
+        {
+            "title":"Luyện gõ từ",
+            "content":"hãn loan nháy tráp gật lần nền",
+            "steno_content":"H_NNSA_N SK_U_N TK_USA_JJN TR_SA_TK KP_NN*W_NT SR_H*W_N PR_HOE_N"
+        },
+        {
+            "title":"Luyện gõ câu",
+            "content":"Ai rồi cũng phải có người yêu thôi."
+        },
+        {
+            "title":"Luyện gõ đoạn văn",
+            "content":"Đầu tường trăng sáng soi, \n Ngỡ là sương trên mặt đất. \n Ngẩng đầu nhìn vầng trăng sáng, \n Cúi đầu lại thấy nhớ quê nhà."
+        }
+    ],
+    "feedback_tags":[
+        "Chức năng","Trải nghiệm","Giao diện","Lỗi","Cá nhân hóa","Điều hướng","Bố cục"
     ]
 }

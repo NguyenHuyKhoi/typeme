@@ -40,13 +40,15 @@ export const routePaths={
     ROOM_RESULT:'/room/result',
     SETTING:'/setting',
     LESSON_LIST:'/lesson/list',
-    EDITOR:'/editor'
+    EDITOR:'/editor',
+    ROOM_HISTORY:'/room/history',
+    ROOM_PLAY:'/room/play'
 }
 
 
 // sidebar : flex=1,  body : flex=3
 export const SIDEBAR_RATIO=4
-
+export const BOX_SHADOW='5px 5px 5px 5px #707070'
 export const BODY={
     FLEX:5,
     PADDING_TOP:40
@@ -55,6 +57,7 @@ export const BODY={
 export const PADDING_BODY_DASHBOARD=50;
 
 export const  TEXT_SIZES={
+    TINY:10,
     NORMAL : 20,
     SMALL  :16,
     BIG    :24,

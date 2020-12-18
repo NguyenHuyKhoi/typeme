@@ -4,47 +4,52 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
+import FeedbackListComponent from '../components/room_list.component';
 
-import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
+import api from '../sample_db/fake_api_responses.json'
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
-import UserListComponent from '../components/user_list.component';
+import RoomListComponent from '../components/room_list.component';
+import PracticeComponent from '../components/practice.component';
+import RoomWayComponent from '../components/room_way.component';
 
-import sample_db from '../sample_db/sample_db.json'
-const users=sample_db.users;
 
-export default class RoomDetailScreen extends Component {
+export default class RoomPlayScreen extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            time_remin:60
+            focus_tab_index:0
         }
-    };
-
+    }
 
     render(){
-        console.log('time :',this.state.time_remin)
         return (
 
             <div style={styles.container}>
                 <FeedbackModal
                       is_open={false} />
 
-                <HeaderBarComponent/>
+                <HeaderBarComponent />
 
                 <div style={styles.body}>
 
-                    
                     <div style={{flex:1}}/>
 
-                    <div style={{flex:BODY.FLEX}}>
-                            <UserListComponent is_result={false} users={users} time_remain={this.state.time_remin}/>
+                    <div style={styles.content_body}>
+                        <RoomWayComponent/>
+                        
+                        <PracticeComponent practice_mode={this.state.focus_tab_index}/>
                     </div>
-                 
+
                     <div style={{flex:1}}/>
+                    
                 </div>
 
+                
+                <FooterBarComponent/>
 
+                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
@@ -64,6 +69,12 @@ const styles={
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:BODY.PADDING_TOP
+        paddingTop:20
+    },
+    content_body:{
+        flex:BODY.FLEX,
+        display:'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
     }
 }

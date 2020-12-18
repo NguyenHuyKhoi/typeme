@@ -14,8 +14,12 @@ export default  class TextareaInputComponent extends Component {
     
     render(){
         const value=this.state.value;
+        const label=this.props.label!==undefined?this.props.label:'';
         return (
             <div style={styles.container}>
+                 <text style={{color:BLACK,fontSize: TEXT_SIZES.NORMAL}}>
+                        {label}
+                </text>
                 <textarea 
                     value={value}
                     onChange={e=>{

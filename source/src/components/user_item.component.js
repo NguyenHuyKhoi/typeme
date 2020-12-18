@@ -10,6 +10,7 @@ import SmallFieldComponent from './common/small_field.component'
 export default class UserItemComponent extends Component {
     render(){
         const user=this.props.user
+        const is_result=this.props.is_result
         return (
             <div style={styles.container}>
             
@@ -20,14 +21,30 @@ export default class UserItemComponent extends Component {
                 </text>
 
                 <div style={styles.fields}>
-                    <InforsBarComponent fields={[
-                        {
-                            key:'Đã chơi',value:user.games+' trận'
-                        },
-                        {
-                            key:'Tỉ lệ Thắng',value:user.win_rate 
-                        }
-                    ]}/>
+                    <InforsBarComponent fields={
+                        !is_result?
+                            [
+                                {
+                                    key:'Đã chơi',value:user.games+' trận'
+                                },
+                                {
+                                    key:'Tỉ lệ Thắng',value:user.win_rate 
+                                }
+                            ]
+                            :
+                            [
+                                {
+                                    key:'Thứ hạng ',value:user.rank
+                                },
+                                {
+                                    key:'Tốc độ ',value:user.wpm+' wpm' 
+                                },
+                                {
+                                    key:'Chính xác ',value:user.accuracy 
+                                }
+                            ]
+                            
+                }/>
                 </div>
 
                 {/* <Link 
@@ -50,7 +67,7 @@ export default class UserItemComponent extends Component {
 
 const styles={
     container:{
-        width:'20vw',
+        width:'18vw',
         height:160,
         backgroundColor: WHITE,  
         boxShadow:'5px 5px 5px 5px #707070',

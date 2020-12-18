@@ -16,6 +16,8 @@ import RoomResultScreen from './screens/room_result.screen';
 import SettingScreen from './screens/setting.screen';
 import LessonListScreen from './screens/lesson_list.screen';
 import EditorScreen from './screens/editor.screen';
+import RoomHistoryScreen from './screens/room_history.screen';
+import RoomPlayScreen from './screens/room_play.screen';
 
 
 
@@ -37,6 +39,8 @@ export default class  App extends Component {
 							<Route path={routePaths.SETTING} component={SettingScreen}/>
 							<Route path={routePaths.LESSON_LIST} component={LessonListScreen}/>
 							<Route path={routePaths.EDITOR} component={EditorScreen}/>
+							<Route path={routePaths.ROOM_HISTORY} component={RoomHistoryScreen}/>
+							<Route path={routePaths.ROOM_PLAY} component={RoomPlayScreen}/>
 
 
 

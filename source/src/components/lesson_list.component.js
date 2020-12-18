@@ -38,7 +38,7 @@ export default class LessonListComponent extends Component {
 
             <div style={styles.container}>
               
-                <HeaderListComponent title='Tasks' is_sort={true}/>
+                <HeaderListComponent title='Các bài học luyện gõ âm' is_sort={true}/>
                 
         
 

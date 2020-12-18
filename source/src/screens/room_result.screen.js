@@ -8,7 +8,9 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 import { TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
-import api from '../sample_db/fake_api_responses.json'
+
+import sample_db from '../sample_db/sample_db.json'
+const users=sample_db.users;
 
 export default class RoomResultScreen extends Component {
 
@@ -28,7 +30,7 @@ export default class RoomResultScreen extends Component {
                     <div style={{flex:1}}/>
 
                     <div style={{flex:6}}>
-                            <UserListComponent users={api.search_freelancers}/>
+                            <UserListComponent is_result={true} users={users}/>
                     </div>
                  
                     <div style={{flex:1}}/>

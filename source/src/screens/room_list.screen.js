@@ -10,29 +10,90 @@ import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import RoomListComponent from '../components/room_list.component';
+import ButtonComponent from '../components/common/button.component';
+import RoomCreateModal from '../components/modal/room_create.modal';
+import RoomHistoryModal from '../components/modal/room_history.modal';
 
 
 export default class RoomListScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            show_create_modal:false,
+            show_history_modal:false
+        }
+    }
+
+    openCreateModal=()=>{
+        this.setState({
+            show_create_modal:true
+        })
+    }
+
+    closeCreateModal=()=>{
+        this.setState({
+            show_create_modal:false
+        })
+    }
+
+    openHistoryModal=()=>{
+        this.setState({
+            show_history_modal:true
+        })
+    }
+
+    closeHistoryModal=()=>{
+        this.setState({
+            show_history_modal:false
+        })
+    }
+
 
     render(){
         return (
 
             <div style={styles.container}>
-                <FeedbackModal
-                      is_open={false} />
+                <RoomCreateModal
+                    is_open={this.state.show_create_modal} 
+                    clickCancel={this.closeCreateModal}
+
+                    clickOk={()=>{
+                        alert('Đã tạo phòng thành công, sau 5p ván đấu sẽ được bắt đầu.')
+                        this.closeCreateModal();
+                    }}/>
+
+                <RoomHistoryModal  
+                    is_open={this.state.show_history_modal} 
+                    clickCancel={this.closeHistoryModal}
+                    clickOk={()=>{
+                        this.closeHistoryModal();
+                }}/>
 
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
 
                     
-                    <div style={{flex:1}}/>
+                    <div style={{flex:1,display:'flex',flexDirection:'column',alignItems: 'center'}}>
+                        <div style={{width: '60%'}}>
+                            <ButtonComponent
+                                onClick={this.openHistoryModal}
+                                 label='Lịch sử chơi'/>
+                        </div>
+                      
+                    </div>
 
                     <div style={{flex:BODY.FLEX}}>
-                            <RoomListComponent/>
+                            <RoomListComponent />
                     </div>
                  
-                    <div style={{flex:1}}/>
+                    <div style={{flex:1,display:'flex',flexDirection:'column',alignItems: 'center'}}>
+                        <div style={{width: '60%'}}>
+                            <ButtonComponent
+                                 onClick={this.openCreateModal}
+                                 label='Tạo phòng'/>
+                        </div>
+                    </div>
                 </div>
 
 

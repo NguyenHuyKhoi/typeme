@@ -15,7 +15,7 @@ export default class SettingAccountComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Account' height={40}/>
+                <HeaderListComponent title='Tài khoản' height={40}/>
 
                 <div style={styles.body}>
 
@@ -27,27 +27,24 @@ export default class SettingAccountComponent extends Component {
 
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                         onChange={(value)=>this.props.updateInputs('first_name',value)}
-                                        label='First Name'
-                                        value={account.first_name}/>
+                                        label='Họ'
+                                        value={'Lê Đức'}/>
                                 </div>
 
                                 <div style={{flex:2}}/>
 
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('last_name',value)}
-                                        label='Last Name'
-                                        value={account.last_name}/>
+                                        label='Tên'
+                                        value={'Bình'}/>
                                 </div>
                                
                             </div>
 
                             <div style={styles.row2}>
                                 <LabeledInputComponent 
-                                    onChange={(value)=>this.props.updateInputs('email',value)}
                                     label='Email'
-                                    value={account.email}/>
+                                    value={'ducbinh@gmail.com'}/>
                             </div>
                          
                         </div>

@@ -6,7 +6,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
 import api from '../sample_db/fake_api_responses.json'
-import { TEXT_SIZES } from '../utils/constants';
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import {BASE_URL} from '../utils/constants'
 import axios from 'axios'
@@ -40,19 +40,22 @@ export default class PracticeScreen extends Component {
 
                 <div style={styles.body}>
 
-                    <div style={{width:'60vw'}}>
-                    <PracticeTabsBarComponent 
-                        focus_tab_index={this.state.focus_tab_index}
-                        onClickTab={(index)=>
-                            this.setState({
-                                focus_tab_index:index
-                            })}/>
-                    </div>
-                    
-                    <PracticeComponent/>
+                    <div style={{flex:1}}/>
 
-                </div>
+                    <div style={styles.content_body}>
+                        <PracticeTabsBarComponent 
+                            focus_tab_index={this.state.focus_tab_index}
+                            onClickTab={(index)=>
+                                this.setState({
+                                    focus_tab_index:index
+                                })}/>
+                        
+                        <PracticeComponent practice_mode={this.state.focus_tab_index}/>
+                    </div>
+
+                    <div style={{flex:1}}/>
                     
+                </div>
 
                 
                 <FooterBarComponent/>
@@ -73,9 +76,14 @@ const styles={
     body:{
         width:'100vw',
         display:'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:15
+        paddingTop:BODY.PADDING_TOP
+    },
+    content_body:{
+        flex:BODY.FLEX,
+        display:'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
     }
 }

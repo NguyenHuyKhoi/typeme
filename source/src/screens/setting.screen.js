@@ -9,7 +9,7 @@ import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
 import { Link } from 'react-router-dom'
 import api from '../sample_db/fake_api_responses.json'
-
+import {BODY} from '../utils/constants'
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
 import HeaderBarComponent from '../components/common/header_bar.component'
@@ -28,7 +28,7 @@ export default class SettingScreen extends Component {
                     <div style={{flex:1}}/>
                     <div style={styles.content_body}>
                 
-                        <HeaderListComponent title='Setting'/>
+                        <HeaderListComponent title='Cài đặt'/>
 
                         <div style={{marginTop:30}}>
                             <SettingAccountComponent 
@@ -47,7 +47,7 @@ export default class SettingScreen extends Component {
                             style={{marginTop:50,width:'25%',textDecoration:'none'}}>
                             <ButtonComponent 
                                 onClick={this.updateSetting}
-                                label='Save Your Changes' height={60}/>
+                                label='Lưu thay đổi' height={60}/>
                         </Link>
                         
                     </div>
@@ -73,19 +73,19 @@ const styles={
         display:'flex',
         flexDirection: 'column'
     },
-    content_body:{
-        display:'flex',
-        flex:SIDEBAR_RATIO,
-        padding:PADDING_BODY_DASHBOARD,
-        flexDirection: 'column'
-    },
     body:{
         width:'100vw',
         display:'flex',
         flexDirection: 'row',
         paddingBottom:100,
-        paddingTop:50
+        paddingTop:BODY.PADDING_TOP
+    },
+    content_body:{
+        display:'flex',
+        flex:BODY.flex,
+        flexDirection: 'column'
     }
+   
 }
 
 

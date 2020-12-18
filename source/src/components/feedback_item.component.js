@@ -44,7 +44,7 @@ export default class FeedbackItemComponent extends Component {
                     </div>
 
                     <div style={styles.skills_container}>
-                        <WordListComponent label="Tags" list={feedback.tags}/>
+                        <WordListComponent  disable={true} label="Tags" list={feedback.tags}/>
                     </div>
                     
                 

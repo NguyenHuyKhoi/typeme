@@ -1,6 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../../utils/constants'
+import { Link } from 'react-router-dom';
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 export default class HeaderListComponent extends Component {
@@ -9,6 +10,7 @@ export default class HeaderListComponent extends Component {
         const height =50;
         const title=this.props.title!==undefined?this.props.title:'';
         const right_title=this.props.right_title!==undefined?this.props.right_title:'';
+        const des_screen=this.props.des_screen!==undefined?this.props.des_screen:''
         return (
             <div style={{...styles.container,height:height}}>
 
@@ -16,9 +18,20 @@ export default class HeaderListComponent extends Component {
                     {title}
                 </text>
 
-                <text style={styles.title}>
-                    {right_title}
-                </text>
+                {
+                    title!==''?
+                    <Link
+                        to={des_screen}>
+                        <text style={styles.title}>
+                        {right_title}
+                        </text>
+                    </Link>
+                    :
+                    null
+
+                }
+               
+                
                 
             </div>
                      

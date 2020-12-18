@@ -15,7 +15,7 @@ export default class SettingProfileCompanyComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Profile' height={40}/>
+                <HeaderListComponent title='Tùy biến' height={40}/>
 
                 <div style={styles.body}>
 

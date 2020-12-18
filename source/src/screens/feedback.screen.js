@@ -9,30 +9,63 @@ import FeedbackListComponent from '../components/feedback_list.component';
 import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
+import FeedbackCreateModal from '../components/modal/feedback_create_modal';
+import ButtonComponent from '../components/common/button.component';
 
 
 export default class FeedbackScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            show_create_modal:false,
+        }
+    }
+
+    openCreateModal=()=>{
+        this.setState({
+            show_create_modal:true
+        })
+    }
+
+    closeCreateModal=()=>{
+        this.setState({
+            show_create_modal:false
+        })
+    }
 
     render(){
         return (
 
             <div style={styles.container}>
-                <FeedbackModal
-                      is_open={false} />
+                <FeedbackCreateModal
+                    is_open={this.state.show_create_modal} 
+                    clickCancel={this.closeCreateModal}
+
+                    clickOk={()=>{
+                        alert('Góp ý của bạn đã được đăng, cảm ơn!!!')
+                        this.closeCreateModal();
+                    }}/>
 
                 {/* header */}
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
 
-                    
                     <div style={{flex:1}}/>
 
                     <div style={{flex:BODY.FLEX}}>
                             <FeedbackListComponent/>
                     </div>
                  
-                    <div style={{flex:1}}/>
+                     
+                    <div style={{flex:1,display:'flex',flexDirection:'column',alignItems: 'center'}}>
+                        <div style={{width: '60%'}}>
+                            <ButtonComponent
+                                onClick={this.openCreateModal}
+                                 label='Gửi góp ý'/>
+                        </div>
+                      
+                    </div>
                 </div>
 
 

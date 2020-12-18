@@ -4,33 +4,24 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
+import FeedbackListComponent from '../components/room_list.component';
 
-import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
+import api from '../sample_db/fake_api_responses.json'
+import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
-import UserListComponent from '../components/user_list.component';
+import RoomHistoryListComponent from '../components/room_history_list.component';
 
-import sample_db from '../sample_db/sample_db.json'
-const users=sample_db.users;
 
-export default class RoomDetailScreen extends Component {
-
-    constructor(props){
-        super(props);
-        this.state={
-            time_remin:60
-        }
-    };
-
+export default class RoomHistoryScreen extends Component {
 
     render(){
-        console.log('time :',this.state.time_remin)
         return (
 
             <div style={styles.container}>
                 <FeedbackModal
                       is_open={false} />
 
-                <HeaderBarComponent/>
+                <HeaderBarComponent />
 
                 <div style={styles.body}>
 
@@ -38,13 +29,14 @@ export default class RoomDetailScreen extends Component {
                     <div style={{flex:1}}/>
 
                     <div style={{flex:BODY.FLEX}}>
-                            <UserListComponent is_result={false} users={users} time_remain={this.state.time_remin}/>
+                            <RoomHistoryListComponent/>
                     </div>
                  
                     <div style={{flex:1}}/>
                 </div>
 
 
+                {/* footer */}
                 <FooterBarComponent/>
             </div>
             

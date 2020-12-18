@@ -24,6 +24,7 @@ class Button extends Component{
         const button=this.props.button
         const is_steno=button.is_steno;
         const is_pressed=this.props.is_pressed
+        const layer_index=this.props.layer_index
 
         return (
             <div 
@@ -31,20 +32,32 @@ class Button extends Component{
                     display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',
                     backgroundColor:
                         !is_steno?
-                            GRAY_2:
+                            layer_index===2?
+                                GRAY_2
+                                :
+                                'rgba(0,0,0,0'
+                        :
+
                             is_pressed?GREEN_1: INDIGO_0}}>
 
                 {
                     button.char_2!==undefined?
-                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,marginLeft:is_steno?10:0}}>
+                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,marginLeft:is_steno && layer_index==2?10:0}}>
                         {button.char_2}
                     </text>
                     :
                     null
                 }
-                <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,marginRight:is_steno?10:0}}>
-                    {button.char_1}
-                </text>
+                {
+                    layer_index!==2?
+                    null
+                    :
+                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,marginRight: is_steno ?10:0}}>
+                        {button.char_1}
+                    </text>
+
+                }
+               
                 
             </div>
         )
@@ -78,6 +91,7 @@ export default class KeyboardComponent extends Component{
     render(){
         const keyboard=keyboard_data;
         const steno_buttons=this.state.steno_buttons;
+        const layer_index=this.props.layer_index
         return (
             <div 
              //   onKeyDown={this.handleKeyDown}
@@ -94,6 +108,7 @@ export default class KeyboardComponent extends Component{
                                 row.map(button=>
                                     <Button 
                                         button={button}
+                                        layer_index={layer_index}
                                         is_pressed={this.state.pressed_button===button.char_1}
                                         />
                                 )
