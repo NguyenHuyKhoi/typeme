@@ -40,7 +40,8 @@ export default class LabeledInputComponent extends Component {
                 <div style={{flex:3}}>
                 <input 
                     onChange={e=>{
-                        this.setState({value:e.target.value})
+                        this.setState({value:e.target.value});
+                        this.props.onChange(e.target.value)
                     }}
                     style={{
                         ...styles.input,

@@ -13,7 +13,7 @@ export default  class TextareaInputComponent extends Component {
     };
     
     render(){
-        const value=this.state.value;
+        const value=this.props.value;
         const label=this.props.label!==undefined?this.props.label:'';
         return (
             <div style={styles.container}>
@@ -23,7 +23,8 @@ export default  class TextareaInputComponent extends Component {
                 <textarea 
                     value={value}
                     onChange={e=>{
-                        this.setState({value:e.target.value})
+                      //  this.setState({value:e.target.value});
+                        this.props.onChange(e.target.value)
                     }}
                     style={styles.textarea}
                         color={GRAY_2}/>

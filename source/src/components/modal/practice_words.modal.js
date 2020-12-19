@@ -20,7 +20,7 @@ export default class PracticeWordsModal extends Component {
                 isOpen={is_open}
                 style={styles.modal}>
                         <div style={styles.container}>
-                            <text style={styles.normal_text}>
+                            <text style={styles.big_text}>
                                 Gõ từ theo từng chủ đề giúp bạn tập trung hơn!
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>

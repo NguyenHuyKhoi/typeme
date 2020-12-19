@@ -58,6 +58,7 @@ export default class WordListComponent extends Component {
         const label=this.props.label!==undefined?this.props.label:'';
         const list=this.props.list;
         const disable=this.props.disable!==undefined?this.props.disable:true
+        const auto_picked=this.props.auto_picked!==undefined?this.props.auto_picked:false;
         const marginTop=this.props.marginTop!==undefined?this.props.marginTop:7
         return (
 
@@ -70,7 +71,13 @@ export default class WordListComponent extends Component {
                         {
                             list.map((item,index)=>{
                            //     console.log('Item in SkillPicker :',item)
-                                const is_picked=disable?false: this.isPicked(item);
+                                const is_picked=auto_picked?
+                                    true
+                                    :
+                                    disable?
+                                        false
+                                        : 
+                                        this.isPicked(item);
                                 return (
                                     <Item
                                         onClick={()=>{

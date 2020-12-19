@@ -17,10 +17,10 @@ export default class SmallFieldComponent extends Component {
 const styles={
     label:{
         fontSize:TEXT_SIZES.SMALL,
-        paddingTop:2,
-        paddingLeft:2,
-        paddingLeft:5,
-        paddingRight:5,
+        paddingTop:4,
+        paddingLeft:4,
+        paddingLeft:7,
+        paddingRight:7,
         borderRadius:5}
 }
 

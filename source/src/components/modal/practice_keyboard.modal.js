@@ -20,7 +20,7 @@ export default class PracticeKeyboardModal extends Component {
                 isOpen={is_open}
                 style={styles.modal}>
                         <div style={styles.container}>
-                            <text style={styles.normal_text}>
+                            <text style={styles.big_text}>
                                 Làm quen với bàn phím tốc ký là điều đầu tiên bạn cần làm !
                             </text>
 

@@ -19,7 +19,7 @@ export default class PracticeLessonModal extends Component {
                 isOpen={is_open}
                 style={styles.modal}>
                         <div style={styles.container}>
-                            <text style={styles.normal_text}>
+                            <text style={styles.big_text}>
                                 Bạn yên tâm! Mỗi bài học đều đảm bảo chỉ từ 5 - 9 quy tắc.
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>

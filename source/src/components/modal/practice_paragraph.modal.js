@@ -20,7 +20,7 @@ export default class PracticeParagraphModal extends Component {
                 isOpen={is_open}
                 style={styles.modal}>
                         <div style={styles.container}>
-                            <text style={styles.normal_text}>
+                            <text style={styles.big_text}>
                                 Vừa luyện tập ,vừa đọc thơ hay!
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>
