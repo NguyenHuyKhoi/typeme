@@ -7,15 +7,22 @@ import { BLACK, GRAY_2, GRAY_5, WHITE } from '../utils/palette'
 import ButtonComponent from './common/button.component'
 import WordListComponent from './word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
-export default class lessonItemComponent extends Component {
+
+import steno1 from '../assets/images/steno_1.PNG'
+import steno2 from '../assets/images/steno_2.PNG'
+import steno3 from '../assets/images/steno_3.PNG'
+import steno4 from '../assets/images/steno_4.PNG'
+
+const steno_images=[steno1,steno2,steno3,steno4];
+
+export default class KeyboardHintItemComponent extends Component {
 
     collapseText=(text)=>{
         return text.substring(0,Math.min(text.length,70));
     }
     render(){
-        const lesson=this.props.lesson;
+        const keyboard_hint=this.props.keyboard_hint;
         const index=this.props.index;
-        console.log('lesson:',lesson);
         return (
             
             <div style={styles.container}>
@@ -23,21 +30,17 @@ export default class lessonItemComponent extends Component {
                 <div style={styles.col1}>
 
                     <div style={{flex:2,display:'flex',flexDirection:'column'}}>
-                    <text style={styles.normal_text}>
-                            {'Bài '+index+' :'+this.collapseText(lesson.title)}
-                        </text>
-                        {/* <text style={styles.normal_text}>
-                            {lesson.title}
-                        </text> */}
+                        <text style={styles.normal_text}>
+                                {'Bài '+(index+1)+' :'+this.collapseText(keyboard_hint.title)}
+                            </text>
+                            {/* <text style={styles.normal_text}>
+                                {lesson.title}
+                            </text> */}
 
                     </div>
 
                     <div style={styles.skills_container}>
-                        <WordListComponent list={[
-                            lesson.subject,
-                            'Số quy tắc : '+lesson.rules,
-                            'Mức độ :'+lesson.level
-                        ]}/>
+                        <WordListComponent marginTop={15} list={keyboard_hint.descriptions}/>
                     </div>
                     
                 
@@ -46,11 +49,7 @@ export default class lessonItemComponent extends Component {
                 <div style={styles.col2}>
 
 
-                    <Link  
-                        style={styles.btn_container}>
-                        <ButtonComponent  onClick={this.props.clickItem} label='Luyện ngay'/>
-            
-                    </Link>
+                    <img src={steno_images[index]} style={{width:'90%',height:'70%'}}/>
                         
                 </div>
 
@@ -66,7 +65,7 @@ export default class lessonItemComponent extends Component {
 const styles={
     container:{
         width:'100%',
-        height:120,
+        height:260,
         backgroundColor: WHITE,
         boxShadow:'3px 3px 3px 3px #707070',
         marginTop:25,            
@@ -74,10 +73,10 @@ const styles={
         flexDirection: 'row'
     },
     col1:{
-        flex:9,
+        flex:3,
         display:'flex',
         flexDirection: 'column',
-        padding: 12
+        padding: 20
     },
     big_text:{
         fontSize:TEXT_SIZES.BIG,
@@ -98,7 +97,7 @@ const styles={
     },
     skills_container:{
         display:'flex',
-        flex:1  
+        flex:6 
     },
     huge_text:{
         fontSize: TEXT_SIZES.HUGE,

@@ -254,5 +254,129 @@
     ],
     "feedback_tags":[
         "Chức năng","Trải nghiệm","Giao diện","Lỗi","Cá nhân hóa","Điều hướng","Bố cục"
+    ],
+    "practice_sentences":[
+        {
+            "content":"Kẻ dốt khẳng định, người thông thái nghi ngờ, nhà hiền triết suy nghĩ.",
+            "steno_content":"",
+            "author":"Aristote"
+        },
+        {
+            "content":"Nếu bạn khép cửa không nhận tất cả những lỗi lầm, sự thật sẽ bị ở lại ở bên ngoài.",
+            "steno_content":"",
+            "author":"Tagore"
+        },
+        {
+            "content":"Nghệ thuật tuyệt đỉnh của giáo dục là khơi dậy niềm hạnh phúc được học tập và sáng tạo.",
+            "steno_content":"",
+            "author":"A.Einstein"
+        },
+        {
+            "content":"Tài năng sẽ bị mai một nếu ta không có những ý tưởng lớn và không tận tâm với những chi tiết dù nhỏ nhất.",
+            "steno_content":"",
+            "author":"Dotxoiepxki"
+        },
+        {
+            "content":"Đừng mong đợi thấy thế giới sáng sủa, nếu bạn không thay đôi kính đen.",
+            "steno_content":"",
+            "author":"Stearns Eliot"
+        },
+        {
+            "content":"Thế giới ngày mai thuộc về những người có tầm nhìn hôm nay.",
+            "steno_content":"",
+            "author":"Robert Schuller"
+        }
+    ],
+    "practice_paragraphs":[
+        {
+            "content":"Trong tù không rượu cũng không hoa. \n Cảnh đẹp đêm nay khó hững hờ. \n Người ngắm trăng soi ngoài cửa sổ. \n Trăng nhòm khe cửa ngắm nhà thơ",
+            "steno_content":"",
+            "title":"Ngắm trăng",
+            "author":"Hồ Chí Minh"
+        },
+        {
+            "content":"Đầu tường trăng sáng soi, \n Ngỡ là sương trên mặt đất. \n Ngẩng đầu nhìn vầng trăng sáng, \n Cúi đầu lại thấy nhớ quê nhà.",
+            "steno_content":"",
+            "title":"Tĩnh dạ tứ",
+            "author":"Lý Bạch"
+        },
+        {
+            "content":"Hôm nay có một nửa trăng thôi, \n Một nửa trăng ai cắn vỡ rồi! \n Ta nhớ mình xa thương đứt ruột! \n Gió làm nên tội buổi chia phôi!",
+            "steno_content":"",
+            "title":"Một nửa trăng",
+            "author":"Hàn Mặc Tử"
+        },
+        {
+            "content":"Thân em thời trắng phận em tròn, \n Bảy nổi ba chìm mấy nước non. \n Rắn nát mặc dầu tay kẻ nặn, \n Nhưng em vẫn giữ tấm lòng son.",
+            "steno_content":"",
+            "title":"Bánh trôi nước",
+            "author":"Hồ Xuân Hương"
+        },
+        {
+            "content":"Nam quốc sơn hà Nam đế cư, \n Tiệt nhiên định phận tại thiên thư. \n Như hà nghịch lỗ lai xâm phạm,\n Nhữ đẳng hành khan thủ bại hư",
+            "steno_content":"",
+            "title":"Nam quốc sơn hà",
+            "author":"Lý Thường Kiệt"
+        }
+    ],
+    "practice_words":[
+        {
+            "title":"Trường học",
+            "content":"bạn.bè thầy.cô học.sinh sách.vở chăm.chỉ giáo.dục tương.lai mầm.non tri.thức ",
+            "steno_content":""
+        },
+        {
+            "title":"Gia đình",
+            "content":"bố.mẹ mái.ấm tình.thương sẻ.chia ông.bà kính.yêu nhường.nhịn ruột.thịt tình.thân hiếu.thảo",
+            "steno_content":""
+        },
+        {
+            "title":"Từ láy",
+            "content":"xào.xạc xơ.xác lác.đác lầm.rầm lí.nhí nhanh.nhảu vui.vẻ mò.mẫm nảy.nở tí.tách lồm.cồm",
+            "steno_content":""
+        },
+        {
+            "title":"Đức tính",
+            "content":"cần.cù chăm.chỉ ngay.thẳng khiêm.tốn thật.thà dũng.cảm nhân.hậu điềm.đạm vị.tha thẳng.thắn kiên.trì",
+            "steno_content":""
+        },
+        {
+            "title":"Nghề nghiệp",
+            "content":"bác.sĩ kỹ.sư công.an nhà.báo phóng.viên luật.sư doanh.nhân nghệ.sĩ nhạc.sĩ thư.ký công.nhân giáo.viên",
+            "steno_content":""
+        }
+    ],
+    "practice_keyboards":[
+        {
+            "title":"Cấu tạo",
+            "descriptions":[
+                "gồm 22 phím + 1 phím dài",
+                "4 phím đặc biệt (S, T, H, N)",
+                "1 phím dài để gõ số"
+            ]
+        },
+        {
+            "title":"Ánh xạ lên bàn phím Qwerty",
+            "descriptions":[
+                "Các phím đen là phím tốc ký",
+                "Dải số từ 1-0 tương ứng với thanh số"
+            ]
+        },
+        {
+            "title":"Cách đặt tay",
+            "descriptions":[
+                "3 ngón tay trái thao tác gõ âm đầu ",
+                "3 ngón tay phải thao tác gõ âm cuối ",
+                "4 ngón tay còn lại thao tác gõ âm giữa "
+            ]
+        },
+        {
+            "title":"Trật tự của bàn phím",
+            "descriptions":[
+                "Có thể gõ được các tổ hợp phím phù hợp với trật tự này",
+                "Việc ghi nhớ trật tự các phím là rất quan trọng"
+            ]
+        }
+
     ]
 }

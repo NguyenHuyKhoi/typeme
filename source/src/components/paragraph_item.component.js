@@ -7,15 +7,14 @@ import { BLACK, GRAY_2, GRAY_5, WHITE } from '../utils/palette'
 import ButtonComponent from './common/button.component'
 import WordListComponent from './word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
-export default class lessonItemComponent extends Component {
+export default class ParagraphItemComponent extends Component {
 
     collapseText=(text)=>{
         return text.substring(0,Math.min(text.length,70));
     }
     render(){
-        const lesson=this.props.lesson;
+        const paragraph=this.props.paragraph;
         const index=this.props.index;
-        console.log('lesson:',lesson);
         return (
             
             <div style={styles.container}>
@@ -23,20 +22,20 @@ export default class lessonItemComponent extends Component {
                 <div style={styles.col1}>
 
                     <div style={{flex:2,display:'flex',flexDirection:'column'}}>
-                    <text style={styles.normal_text}>
-                            {'Bài '+index+' :'+this.collapseText(lesson.title)}
-                        </text>
-                        {/* <text style={styles.normal_text}>
-                            {lesson.title}
-                        </text> */}
+                        <text style={styles.normal_text}>
+                                {'Bài '+index+' :'+this.collapseText(paragraph.title)}
+                            </text>
+                            {/* <text style={styles.small_text}>
+                                {sentence.author}
+                            </text> */}
 
                     </div>
 
                     <div style={styles.skills_container}>
                         <WordListComponent list={[
-                            lesson.subject,
-                            'Số quy tắc : '+lesson.rules,
-                            'Mức độ :'+lesson.level
+                            paragraph.author
+                            // 'Số quy tắc : '+lesson.rules,
+                            // 'Mức độ :'+lesson.level
                         ]}/>
                     </div>
                     
@@ -77,7 +76,8 @@ const styles={
         flex:9,
         display:'flex',
         flexDirection: 'column',
-        padding: 12
+        padding: 15,
+        paddingLeft: 25
     },
     big_text:{
         fontSize:TEXT_SIZES.BIG,

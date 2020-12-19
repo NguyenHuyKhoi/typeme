@@ -7,52 +7,40 @@ import FeedbackItemComponent from './feedback_item.component';
 import LessonItemComponent from './lesson_item.component';
 import RoomItemComponent from './room_item.component'
 import sample_db from '../sample_db/sample_db.json'
+import SentenceItemComponent from './sentence_item.component';
 
-const lessons=sample_db.lessons
-export default class LessonListComponent extends Component {
+const sentences=sample_db.practice_sentences
+export default class SentenceListComponent extends Component {
     constructor(props){
         super(props);
         this.state={
-            lessons:lessons,
-            first_item_index:0,
-            last_item_index:Math.min(4,lessons.length-1)
+            sentences:sentences
         }
     }
 
-    switchPage=(l,r)=>{
-        this.setState({
-            first_item_index:l,
-            last_item_index:r
-        })
-    }
+
 
     render(){
-        const lessons=this.state.lessons
+        const sentences=this.state.sentences
 
         const l=this.state.first_item_index;
         const r=this.state.last_item_index;
 
-        const arr=lessons;
-        //.slice(l,r+1)
-        console.log('arr:',l,r,arr);
         return (
 
             <div style={styles.container}>
 
                 <div style={styles.body}>
                 {
-                    arr.map((item,index)=>
-                        <LessonItemComponent
-                        clickItem={this.props.clickItem}
-                             lesson={item} index={l+index+1}/>
+                    sentences.map((item,index)=>
+                        <SentenceItemComponent
+                            clickItem={this.props.clickItem}
+                            sentence={item} 
+                            index={index+1}/>
                     )
                 }
                 </div>
 
-                {/* <PaginationComponent    
-                    onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={lessons.length} items_per_page={5} />
-           */}
             </div>
                     
     

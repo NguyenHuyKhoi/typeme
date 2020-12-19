@@ -12,6 +12,7 @@ class Item extends Component{
             <div
                 onClick={this.props.onClick} 
                 style={{...styles.item_container,
+                    marginTop:this.props.marginTop,
                     backgroundColor: is_picked?BLUE_1:GRAY_3}}>
             <text style={{...styles.item_name,
                         color: is_picked?WHITE:GRAY_1}}>
@@ -57,6 +58,7 @@ export default class WordListComponent extends Component {
         const label=this.props.label!==undefined?this.props.label:'';
         const list=this.props.list;
         const disable=this.props.disable!==undefined?this.props.disable:true
+        const marginTop=this.props.marginTop!==undefined?this.props.marginTop:7
         return (
 
             <div style={styles.container}>
@@ -74,6 +76,7 @@ export default class WordListComponent extends Component {
                                         onClick={()=>{
                                             if (!disable) this.clickItem(item)
                                         }} 
+                                        marginTop={marginTop}
                                         item={item}
                                         key={''+index}
                                         is_picked={is_picked}
@@ -112,7 +115,6 @@ const styles={
     item_container:{
         display:'flex',
         marginRight:10,
-        marginTop:7,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius:3,

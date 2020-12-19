@@ -67,7 +67,9 @@ class ContentCard extends Component{
         <div style={{width: '100%',height:'100%',display:'flex',
                 flexDirection:'column',alignItems: 'center',overflowY: 'scroll'}}>
 
-                <PracticeContentListComponent title={title} content={content}/>
+                <PracticeContentListComponent
+                    onClick={this.props.onClick} 
+                    title={title} content={content}/>
                 
             </div>
         )
@@ -95,7 +97,9 @@ export default class PracticeComponent extends Component {
                     <div style={{width: '65%',height: '100%',
                         padding:20,backgroundColor: WHITE,
                         boxShadow: BOX_SHADOW}}>
-                        <ContentCard practice_mode={practice_mode}/>
+                        <ContentCard 
+                            onClick={this.props.onClick}
+                            practice_mode={practice_mode}/>
                     </div>
 
                     <div style={{width: '27%',height: '100%',

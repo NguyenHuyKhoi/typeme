@@ -19,7 +19,7 @@ const logo123='FaTwitter'
 const headerBarItems=[
     {
         label:'Luyện gõ',
-        screen:routePaths.LESSON_LIST,
+        screen:routePaths.PRACTICE,
     },
     {
         label:'Soạn thảo',

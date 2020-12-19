@@ -44,9 +44,21 @@ export default class PracticeContentListComponent extends Component {
     
 
             <div style={styles.container}>
-                    <text style={styles.label}>
-                        {title}
-                    </text>
+
+                    <div style={{width: '100%',display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+                        <text style={styles.label}>
+                            {title}
+                        </text>
+
+
+                        <text 
+                            onClick={this.props.onClick}
+                            style={{...styles.label,fontStyle: 'italic',color:BLUE_1,marginRight: 20}}>
+                            {'Chọn bài'}
+                        </text>
+
+                    </div>
+                  
                     
                     <div style={styles.body}>
                         {
