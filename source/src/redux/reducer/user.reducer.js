@@ -1,10 +1,11 @@
 import { USER_ACTIONS } from "../constant/index.constant";
 import sample_db from '../../sample_db/sample_db.json'
-import { CONTENT_MODE, PRACTICE_MODE } from "../../utils/constants";
+import { CONTENT_MODE, PRACTICE_MODE,WORD_STATE } from "../../utils/constants";
 
 const practice_lessons=sample_db.practice_lessons
 const practice_processes=sample_db.practice_processes
 const practice_rhyme_rules=sample_db.practice_rhyme_rules
+
 const initial_user_info={
     lesson_data:practice_lessons[0][0],
     rule_data:null,
@@ -12,7 +13,9 @@ const initial_user_info={
     lesson_index:0,
     practice_mode:0,
     content_mode:CONTENT_MODE.SHOW_LESSON,
-    practice_modals:[false,false,false,false,false]
+    practice_modals:[false,false,false,false,false],
+    word_state:practice_lessons[0][0].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
+    current_word_index:0
 };
 
 let userReducer=(state=initial_user_info,action)=>{
@@ -21,6 +24,8 @@ let userReducer=(state=initial_user_info,action)=>{
     let li
     let modals
     let cmode
+    let wstate
+    let cwi
     switch (action.type){
 
         case USER_ACTIONS.CHOOSE_PRACTICE_MODE:
@@ -29,8 +34,11 @@ let userReducer=(state=initial_user_info,action)=>{
                ...state,
                lesson_index:0,
                practice_mode:mode,
-               lesson_data:practice_lessons[mode][0],
+               lesson_data:{...practice_lessons[mode][0],index:0},
+               content_mode:CONTENT_MODE.SHOW_LESSON,
                rule_data:mode===PRACTICE_MODE.RHYME?practice_rhyme_rules[0]:null,
+               word_state:practice_lessons[mode][0].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
+               current_word_index:0
            };
 
 
@@ -41,8 +49,10 @@ let userReducer=(state=initial_user_info,action)=>{
             return {
                 ...state,
                 lesson_index:li,
-                lesson_data:practice_lessons[mode][li],
+                lesson_data:{...practice_lessons[mode][li],index:li},
                 rule_data:mode===PRACTICE_MODE.RHYME?practice_rhyme_rules[li]:null,
+                word_state:practice_lessons[mode][li].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
+                current_word_index:0
             };
 
         case USER_ACTIONS.CHOOSE_CONTENT_MODE:
@@ -70,6 +80,26 @@ let userReducer=(state=initial_user_info,action)=>{
                 ...state,
                 practice_modals:modals
             };
+
+        case USER_ACTIONS.TYPE_CORRECT:
+            wstate=state.word_state;
+            cwi=state.current_word_index;
+            wstate[cwi]=WORD_STATE.CORRECT;
+            return {
+                ...state,
+                word_state:wstate,
+                current_word_index:cwi<wstate.length-1?cwi+1:cwi
+            }
+        case USER_ACTIONS.TYPE_FAIL:
+            wstate=state.word_state;
+            cwi=state.current_word_index
+            wstate[cwi]=WORD_STATE.WRONG;
+            return {
+                ...state,
+                word_state:wstate,
+                current_word_index:cwi<wstate.length-1?cwi+1:cwi
+            }
+
         default :
             return state;
     }

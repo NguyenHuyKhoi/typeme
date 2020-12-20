@@ -1,35 +1,30 @@
 import react,{Component} from 'react'
-import { TEXT_SIZES } from '../utils/constants';
+import { KEYBOARD_LAYER,STENO_BUTTON_STATE, TEXT_SIZES ,THREHOLD_PRESS_WAITING_TIME} from '../utils/constants';
 import data from '../utils/keyboard.json'
-import { BLUE_1, GRAY_2, GRAY_4, GREEN_1, INDIGO_0, WHITE } from '../utils/palette';
+import { BLUE_1, GRAY_2, GRAY_4, GREEN_1, INDIGO_0, RED_1, WHITE } from '../utils/palette';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 const keyboard_data=data.keyboard;
 
-const STENO_BUTTON_STATES={
-    NORMAL:'NORMAL',
-    HIGHLIGHT:'HIGHLIGHT',
-    CORRECT:'CORRECT',
-    WRONG:'WRONG'
-}
-
+const STENO_BUTTON_COLORS=[GREEN_1,RED_1,BLUE_1,INDIGO_0]
 
 class Button extends Component{
     constructor(props){
         super(props);
         this.state={
-            state:STENO_BUTTON_STATES.NORMAL
+            state:STENO_BUTTON_STATE.NORMAL
         }
     }
     render(){
         const button=this.props.button
         const is_steno=button.is_steno;
-        const is_pressed=this.props.is_pressed
+        const state=this.props.state
         const layer_index=this.props.layer_index
-
         return (
             <div 
-                style={{width:45*button.flex,height:'100%',borderRadius:4,
-                    display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',
+                style={{
+                    width:45*button.flex,height:'100%',borderRadius:4,
+                    display:'flex',flexDirection:'column',justifyContent:'center',
+                    alignItems:'center',
                     backgroundColor:
                         !is_steno?
                             layer_index===2?
@@ -37,8 +32,7 @@ class Button extends Component{
                                 :
                                 'rgba(0,0,0,0'
                         :
-
-                            is_pressed?GREEN_1: INDIGO_0}}>
+                        STENO_BUTTON_COLORS[state]}}>
 
                 {
                     button.char_2!==undefined?
@@ -73,25 +67,101 @@ export default class KeyboardComponent extends Component{
                 if (button.is_steno) steno_buttons.push(button.char_1)
             }))
 
+        let arr=this.props.steno_content.split(" ")
         this.state={
             steno_buttons:steno_buttons,
-            pressed_button:null
+            enable_group:this.props.group,
+            words:arr,
+            wrong_button:'',
+            correct_button:'',
+            current_word_index:0,
+            remain_current_word:arr[0]
         };
-
-        console.log('steno:',steno_buttons)
     };
-
-    pressButton=(keyname)=>{
-        console.log('keyname :',keyname)
+    
+    nextWord=()=>{
+        console.log('state_of_keyboard :',this.state.pressed_buttons,this.state.wrong_button)
+        let i=this.state.current_word_index;
+        let arr=this.state.words;
         this.setState({
-            pressed_button:keyname
+            current_word_index:i+1,
+            remain_current_word:arr[i+1]
         });
+        console.log('Next word :',arr[i+1])
+    }
+
+    pressButton=async (keyname)=>{
+        if (!this.props.enable) return ;
+        let remain_word=this.state.remain_current_word+'';
+        if (!remain_word.includes(keyname)){
+            this.props.typeWrong();
+            await this.setState({
+                wrong_button:keyname,
+                correct_button:''
+            });
+
+            setTimeout(() => {
+                this.setState({
+                    wrong_button:''
+                })
+            }, 200);
+
+            this.nextWord();
+        }
+        else {
+            remain_word=remain_word.replace(keyname,'');
+            if (remain_word===''){
+                this.props.typeCorrect();
+                await this.setState({
+                    correct_button:keyname,
+                    wrong_button:''
+                })
+
+                setTimeout(() => {
+                    this.setState({
+                        correct_button:''
+                    })
+                }, 200);
+                this.nextWord();
+            }
+            else {
+                console.log('Remain word :',remain_word)
+                let str=this.state.pressed_buttons;
+                str+=keyname;
+                await this.setState({
+                    remain_current_word:remain_word,
+                    wrong_button:'',
+                    correct_button:keyname,
+                })
+
+                setTimeout(() => {
+                    this.setState({
+                        correct_button:''
+                    })
+                }, 200);
+            }
+        }
+    }
+
+
+    isHightlightButton=(btn)=>{
+        if (!btn.is_steno) return false;
+        if (btn.char_2===undefined) return false;
+
+        if (btn.group!==this.state.enable_group) return false
+        let arr=this.state.words;
+        let i=this.state.current_word_index;
+
+
+        if (!arr[i].includes(btn.char_2)) return false;
+        return true
     }
 
     render(){
         const keyboard=keyboard_data;
         const steno_buttons=this.state.steno_buttons;
         const layer_index=this.props.layer_index
+        const enable=this.props.enable;
         return (
             <div 
              //   onKeyDown={this.handleKeyDown}
@@ -105,13 +175,35 @@ export default class KeyboardComponent extends Component{
                         <div style={{width:'100%',height:45,display:'flex',flexDirection:'row',marginTop:5,
                             justifyContent:'space-between'}}>
                             {
-                                row.map(button=>
-                                    <Button 
-                                        button={button}
-                                        layer_index={layer_index}
-                                        is_pressed={this.state.pressed_button===button.char_1}
-                                        />
-                                )
+                                row.map((button,index)=>{
+                                    const state=button.is_steno?
+                    
+                                        button.group!==this.state.enable_group ?
+                                        STENO_BUTTON_STATE.NONE
+                                        :
+                                        this.state.correct_button===button.char_2?
+                                            STENO_BUTTON_STATE.CORRECT
+                                            :
+                                            this.state.wrong_button===button.char_2?
+                                                STENO_BUTTON_STATE.WRONG
+                                                :
+                                                this.isHightlightButton(button)?
+                                                    STENO_BUTTON_STATE.HIGHLIGHT
+                                                    :
+                                                    STENO_BUTTON_STATE.NONE
+                                        :
+                                        null;
+
+                                    console.log('State ',button.char_2,state)
+                                    return (
+                                        <Button 
+                                            button={button}
+                                            key={''+index}
+                                            layer_index={layer_index}
+                                            state={state}
+                                            />
+                                    )
+                                    })
                             }
                         </div>
                     )

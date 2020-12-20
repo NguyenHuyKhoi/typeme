@@ -4,8 +4,9 @@ import Modal from 'react-modal';
 import {  TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
+import PracKeyboardHintListComponent from '../practice/prac_keyboard_hint_list.component';
 
-import PracKeywordListComponent from '../practice/prac_keyword_list.component'
+import PracKeyboardListComponent from '../practice/prac_keyboard_list.component.js'
 
 export default class PracticeKeyboardModal extends Component {
 
@@ -20,11 +21,14 @@ export default class PracticeKeyboardModal extends Component {
                                 Làm quen với bàn phím tốc ký là điều đầu tiên bạn cần làm !
                             </text>
 
-                            <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>
-                                <PracKeywordListComponent
+                            <div style={{width:'90%',overflowY:'scroll',padding: 15}}>
+                                <PracKeyboardListComponent
                                     clickItem={this.props.clickItem}
                                     />
+                                <PracKeyboardHintListComponent
+/>
                             </div>
+
                           
 
                             <div style={styles.footer}>
@@ -57,6 +61,7 @@ const styles={
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
+
     },
     modal:{ 
         content : {

@@ -235,8 +235,28 @@
     "practice_lessons":[
         [
             {
-                "title":"Luyện gõ phím",
-                "content":"ST HS NG TK SK HW SI NG GK TP SI UO EA UA"
+                "title":"Luyện cụm phím trái",
+                "content":"S K R P T P H ST KR KP TP STP SKR TPH",
+                "steno_content":"S K R P T P H ST KR KP TP STP SKR TPH",
+                "group":1
+            },
+            {
+                "title":"Luyện cụm phím phải",
+                "content":"J N G T K G N J K NG TK GH JK JN NGT TNK JGK",
+                "steno_content":"J N G T K G N J K NG TK GH JK JN NGT TNK JGK",
+                "group":3
+            },
+            {
+                "title":"Luyện cụm phím trung tâm (p1)",
+                "content":"N H S I Y W * NH SI YW HS IW NW NY NHS HSI YWN SIH",
+                "steno_content":"N H S I Y W * NH SI YW HS IW NW NY NHS HSI YWN SIH",
+                "group":2
+            },
+            {
+                "title":"Luyện cụm phím trung tâm (p2)",
+                "content":"SI YW IW NW IY HI HIY SIY NHS SIYW NHIY SHIW",
+                "steno_content":"SI YW IW NW IY HI HIY SIY NHS SIYW NHIY SHIW",
+                "group":2
             }
         ],
         [
@@ -246,7 +266,8 @@
                 "content":"s t k c h s k t h c s k h c t",
                 "steno_content":"S T K K H S K T H K S K H K T",
                 "rules":5,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":1
             },
             {
                 "subject":"Âm đầu",
@@ -254,67 +275,78 @@
                 "rules":6,
                 "content":      "r b th kh ph tr r th tr b kh r kh b ",
                 "steno_content":"R P TH KH PH TR R TH TR P PH R KH P",
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":1
             },
             {
                 "subject":"Âm đầu",
                 "title":"Nhóm các phụ âm có cách phát âm giống nhau hoặc gần nhau",
                 "rules":8,
-                "level":"Trung bình"
+                "level":"Trung bình",
+                "group":1
             }, {
                 "subject":"Âm đầu",
                 "title":"Nhóm các phụ âm có dạng chữ viết gần giống nhau",
                 "rules":6,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":1
             
             },
             {
                 "subject":"Âm đầu",
                 "title":"Nhóm các phụ âm ngoại lệ",
                 "rules":3,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":1
             },
             {
                 "subject":"Âm chính",
                 "title":"Nhóm các dấu thanh có đường nét thẳng, 1 hướng và Nhóm các nguyên âm không có quy tắc ghi nhớ",
                 "rules":3,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":2
             },
             {
                 "subject":"Âm chính",
                 "title":"Nhóm các nguyên âm có cùng dạng chữ, cùng phát âm với phím tốc kí và không cần ghi nhớ",
                 "rules":6,
-                "level":"Trung bình"
+                "level":"Trung bình",
+                "group":2
             },
             {
                 "subject":"Âm chính",
                 "title":"Nhóm các nguyên âm ngắn sử dụng * cho các nguyên âm ngắn và Nhóm các nguyên âm không có quy tắc ghi nhớ ",
                 "rules":7,
-                "level":"Trung bình"
+                "level":"Trung bình",
+                "group":2
             },
             {
                 "subject":"Âm chính",
                 "title":"Nhóm các âm đệm + nguyên âm không có cùng dạng chữ với phím tốc kí cần ghi nhớ",
                 "rules":8,
-                "level":"Khó"
+                "level":"Khó",
+                "group":2
             },
             {
                 "subject":"Âm cuối",
                 "title":"Nhóm các phụ âm có cùng dạng chữ với phím tốc kí và không cần ghi nhớ và nhóm các phụ âm có cách phát âm gần nhau",
                 "rules":5,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":3
             },
             {
                 "subject":"Âm cuối",
                 "title":"Nhóm các phụ âm có cách viết gần nhau và Nhóm các phụ âm không có điểm ghi nhớ",
                 "rules":7,
-                "level":"Trung bình"
+                "level":"Trung bình",
+                "group":3
             },
             {
                 "subject":"Gõ số và xóa",
                 "title":"Quy tắc gõ số",
                 "rules":4,
-                "level":"Dễ"
+                "level":"Dễ",
+                "group":3
             }
     
             
@@ -415,6 +447,15 @@
         "Chức năng","Trải nghiệm","Giao diện","Lỗi","Cá nhân hóa","Điều hướng","Bố cục"
     ],
     "practice_rhyme_rules":[
+        [
+            "s = S","t = T","k = K","c = K","h = H","r = R"
+        ],
+        [
+            "b = P","th = TH","kh = KH","ph = PH","tr = TR"
+        ],
+        [
+            "ng = KR","ngh = KR","gh = KP","g = KP","gi = SH","d = SP"
+        ],
         [
             "ch = SK","nh = TK","d = SP","đ = TP","m = RH","n = PR"
         ]

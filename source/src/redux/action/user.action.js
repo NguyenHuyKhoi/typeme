@@ -40,3 +40,21 @@ export const closePracticeModal=(payload)=>{
     }
 }
 
+export const typeCorrect=(payload)=>{
+    console.log('action typeCorrect :',payload);
+    return {
+        type:USER_ACTIONS.TYPE_CORRECT,
+        payload:payload
+    }
+}
+
+
+export const typeWrong=(payload)=>{
+    console.log('action typeFail:',payload);
+    return {
+        type:USER_ACTIONS.TYPE_WRONG,
+        payload:payload
+    }
+}
+
+

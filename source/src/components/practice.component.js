@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { WHITE ,BLACK, GRAY_2, BLUE_1} from '../utils/palette'
 
 
-import {TEXT_SIZES,BOX_SHADOW} from '../utils/constants'
+import {TEXT_SIZES,BOX_SHADOW, PRACTICE_MODE, KEYBOARD_LAYER} from '../utils/constants'
 import KeyboardComponent from './keyboard.component'
 import PracticeLessonContentComponent from './practice_lesson_content.component'
 
@@ -157,7 +157,8 @@ class ContentCard extends Component{
             content_mode,
             lesson_data,
             rule_data,
-            process_data
+            process_data,
+            word_state
         }=this.props.user_infor
 
 
@@ -170,6 +171,7 @@ class ContentCard extends Component{
                 {
                     content_mode===CONTENT_CARD_MODE.SHOW_LESSION?
                         <PracticeLessonContentComponent
+                            word_state={word_state}
                             onClick={this.props.clickChooseLesson} 
                             lesson={lesson_data}
                         />
@@ -190,16 +192,19 @@ class PracticeComponent extends Component {
     constructor(props){
         super(props);
         this.state={
-            layer_index:0
+            layer_index:KEYBOARD_LAYER.ONLY_SHOW_STENO_KEYBOARD
         }
     }
 
     render(){
         const {
             practice_mode,
-            content_mode
+            content_mode,
+            lesson_data,
+            word_state
             }=this.props.user_infor;
-
+        
+        console.log('word_state :',word_state)
         return (
             <div style={{width: '100%',height: '75vh',marginTop:20,
                 justifyContent:'space-between',flexDirection:'column',display:'flex'}}>
@@ -212,6 +217,7 @@ class PracticeComponent extends Component {
                         padding:20,backgroundColor: WHITE,
                         boxShadow: BOX_SHADOW}}>
                         <ContentCard 
+                            word_state={word_state}
                             clickChooseLesson={()=>this.props.openPracticeModal({})}
                             user_infor={this.props.user_infor}/>
                     </div>
@@ -251,14 +257,14 @@ class PracticeComponent extends Component {
 
                     <div style={{width: 100}}>
                         {
-                            practice_mode===1?
+                            practice_mode===PRACTICE_MODE.RHYME?
                             <ButtonComponent 
                                 onClick={()=>{
                                     if (content_mode!==CONTENT_CARD_MODE.SHOW_RULES)
-                                    this.props.changeContentMode({
+                                    this.props.chooseContentMode({
                                         content_mode:CONTENT_CARD_MODE.SHOW_RULES
                                     })
-                                    else  this.props.changeContentMode({
+                                    else  this.props.chooseContentMode({
                                         content_mode:CONTENT_CARD_MODE.SHOW_LESSION
                                     })
                                 }}
@@ -272,7 +278,13 @@ class PracticeComponent extends Component {
                     </div>
 
                     <div style={{flex:1,marginLeft:30,marginRight: 30}}>
-                        <KeyboardComponent layer_index={this.state.layer_index}/>
+                        <KeyboardComponent
+                            typeWrong={()=>this.props.typeWrong({})}
+                            typeCorrect={()=>this.props.typeCorrect({})}
+                            enable={content_mode===CONTENT_CARD_MODE.SHOW_LESSION}
+                            group={lesson_data.group} 
+                            steno_content={lesson_data.steno_content}
+                            layer_index={this.state.layer_index}/>
                     </div>
                   
                   
@@ -285,10 +297,10 @@ class PracticeComponent extends Component {
                         <ButtonComponent 
                             onClick={()=>{
                                 if (content_mode!==CONTENT_CARD_MODE.SHOW_PROCESS)
-                                this.props.changeContentMode({
+                                this.props.chooseContentMode({
                                     content_mode:CONTENT_CARD_MODE.SHOW_PROCESS
                                 })
-                                else  this.props.changeContentMode({
+                                else  this.props.chooseContentMode({
                                     content_mode:CONTENT_CARD_MODE.SHOW_LESSION
                                 })
                             }}

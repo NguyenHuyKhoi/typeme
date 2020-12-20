@@ -1,18 +1,27 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../utils/constants'
-import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_5, WHITE } from '../utils/palette'
-
+import { TEXT_SIZES, WORD_STATE } from '../utils/constants'
+import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_5, GREEN_1, RED_1, WHITE } from '../utils/palette'
+import {collapseText} from '../utils/helper'
 
 class Item extends Component{
     render(){
         const item=this.props.item;
+        const state=this.props.state;
         const is_picked=this.props.is_picked;
+        console.log('state_item:',state);
         return (
             <div
                // onClick={this.props.onClick} 
                 style={{...styles.item_container,
-                    backgroundColor: is_picked?BLUE_1:GRAY_3}}>
+                    backgroundColor:
+                        state===WORD_STATE.NOT_TYPED?
+                            GRAY_3
+                            :
+                            state===WORD_STATE.WRONG?
+                            RED_1
+                            :
+                            GREEN_1}}>
             <text style={{...styles.item_name,
                         color: is_picked?WHITE:GRAY_1}}>
                 {item} 
@@ -40,7 +49,11 @@ export default class PracticeLessonContentComponent extends Component {
     render(){
         const lesson=this.props.lesson;
         const title=lesson.title
+        const index=lesson.index!==undefined?lesson.index:1;
         const items=this.extractItems();
+        const word_state=this.props.word_state;
+
+        console.log('state_item:',word_state);
         return (
     
 
@@ -48,7 +61,7 @@ export default class PracticeLessonContentComponent extends Component {
 
                     <div style={{width: '100%',display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
                         <text style={styles.label}>
-                            {title}
+                            {'Bài '+(index+1)+" : "+collapseText(title,50)}
                         </text>
 
 
@@ -68,6 +81,7 @@ export default class PracticeLessonContentComponent extends Component {
                                 const is_picked=false;
                                 return (
                                     <Item
+                                        state={word_state[index]}
                                         item={item}
                                         key={''+index}
                                         is_picked={is_picked}

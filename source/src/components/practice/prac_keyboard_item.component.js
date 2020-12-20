@@ -1,18 +1,14 @@
 //import from library 
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+import ButtonComponent from '../common/button.component'
 import {TEXT_SIZES } from '../../utils/constants'
 import { BLACK, GRAY_2, GRAY_5, WHITE } from '../../utils/palette'
 import WordListComponent from '../word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
 
-import steno1 from '../assets/images/steno_1.PNG'
-import steno2 from '../assets/images/steno_2.PNG'
-import steno3 from '../assets/images/steno_3.PNG'
-import steno4 from '../assets/images/steno_4.PNG'
 
-const steno_images=[steno1,steno2,steno3,steno4];
-
-export default class KeyboardHintItemComponent extends Component {
+export default class PracKeyboardItemComponent extends Component {
 
     collapseText=(text)=>{
         return text.substring(0,Math.min(text.length,70));
@@ -30,23 +26,16 @@ export default class KeyboardHintItemComponent extends Component {
                         <text style={styles.normal_text}>
                                 {'Bài '+(index+1)+' :'+this.collapseText(keyboard_hint.title)}
                             </text>
-                            {/* <text style={styles.normal_text}>
-                                {lesson.title}
-                            </text> */}
 
                     </div>
-
-                    <div style={styles.skills_container}>
-                        <WordListComponent marginTop={15} list={keyboard_hint.descriptions}/>
-                    </div>
-                    
                 
                 </div>
 
                 <div style={styles.col2}>
-
-
-                    <img src={steno_images[index]} style={{width:'90%',height:'70%'}}/>
+                    <Link  
+                        style={styles.btn_container}>
+                        <ButtonComponent  onClick={this.props.clickItem} label='Luyện ngay'/>
+                    </Link>
                         
                 </div>
 
@@ -62,7 +51,7 @@ export default class KeyboardHintItemComponent extends Component {
 const styles={
     container:{
         width:'100%',
-        height:260,
+        height:80,
         backgroundColor: WHITE,
         boxShadow:'3px 3px 3px 3px #707070',
         marginTop:25,            
@@ -70,7 +59,7 @@ const styles={
         flexDirection: 'row'
     },
     col1:{
-        flex:3,
+        flex:5,
         display:'flex',
         flexDirection: 'column',
         padding: 20
@@ -101,7 +90,7 @@ const styles={
         color:BLACK
     },
     col2:{
-        flex:4,
+        flex:3,
         display:'flex',
         justifyContent: 'center',
         flexDirection: 'column',
@@ -117,7 +106,7 @@ const styles={
         color:GRAY_2
     },
     btn_container:{
-        marginTop:15,
+        
         width:'60%',
         textDecoration:'none'
     }

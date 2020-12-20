@@ -1,19 +1,18 @@
 //import from library 
 import React, {Component} from 'react'
-import { routePaths, TEXT_SIZES } from '../utils/constants'
-import { collapseText } from '../utils/helper'
-import { BLACK, GRAY_2, GRAY_5, WHITE } from '../utils/palette'
-import WordListComponent from './word_list.component'
+import {TEXT_SIZES } from '../../utils/constants'
+import { BLACK, GRAY_2, GRAY_5, WHITE } from '../../utils/palette'
+import WordListComponent from '../word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
 
-import steno1 from '../assets/images/steno_1.PNG'
-import steno2 from '../assets/images/steno_2.PNG'
-import steno3 from '../assets/images/steno_3.PNG'
-import steno4 from '../assets/images/steno_4.PNG'
+import steno1 from '../../assets/images/steno_1.PNG'
+import steno2 from '../../assets/images/steno_2.PNG'
+import steno3 from '../../assets/images/steno_3.PNG'
+import steno4 from '../../assets/images/steno_4.PNG'
 
 const steno_images=[steno1,steno2,steno3,steno4];
 
-export default class PracKeywordItemComponent extends Component {
+export default class PracKeyboardHintItemComponent extends Component {
 
     collapseText=(text)=>{
         return text.substring(0,Math.min(text.length,70));
@@ -29,7 +28,7 @@ export default class PracKeywordItemComponent extends Component {
 
                     <div style={{flex:2,display:'flex',flexDirection:'column'}}>
                         <text style={styles.normal_text}>
-                                {'Bài '+(index+1)+' :'+this.collapseText(keyboard_hint.title)}
+                                {this.collapseText(keyboard_hint.title)}
                             </text>
                             {/* <text style={styles.normal_text}>
                                 {lesson.title}
