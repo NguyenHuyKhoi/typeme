@@ -6,7 +6,8 @@ import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, BODY } from '../utils
 import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE, YELLOW_1 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
-
+import { Link } from 'react-router-dom'
+import api from '../sample_db/fake_api_responses.json'
 
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
@@ -22,124 +23,78 @@ export default class StatisticScreen extends Component {
             show_modal:false,
             value:'',
 
-        }
-    }
+    };
+  }
 
-    openModal=()=>{
-        this.setState({
-            show_modal:true
-        })
-    }
+  openModal = () => {
+    this.setState({
+      show_modal: true
+    });
+  };
 
-    closeModal=()=>{
-        this.setState({
-            show_modal:false
-        })
-    }
+  closeModal = () => {
+    this.setState({
+      show_modal: false
+    });
+  };
 
 
+  render() {
+    return (
 
-    render(){
-        return (
+      <div style={styles.container}>
 
-            <div style={styles.container}>
-                
-                <DictionaryModal
-                    is_open={this.state.show_modal} 
-                    clickCancel={this.closeModal}
+        <DictionaryModal
+          is_open={this.state.show_modal}
+          clickCancel={this.closeModal}
 
-                    clickOk={()=>{
-                        alert('Đã lưu lại tìm kiếm này!!!')
-                        this.closeModal();
-                    }}/>
+          clickOk={() => {
+            alert('Đã lưu lại tìm kiếm này!!!');
+            this.closeModal();
+          }}/>
 
-                <HeaderBarComponent />
-                
-                <div style={styles.body}>
-                    <div style={{flex:1}}/>
-                    <div style={styles.content_body}>
-                
-                        <HeaderListComponent title='Soạn thảo'/>
-           
-                        <div style={{flexDirection:'row',height: '80%',display:'flex',
-                                backgroundColor: WHITE,padding:20,
-                                boxShadow: '5px 5px 5px 5px #707070'}}>
-                            <div style={{width: '90%',height:'100%'}}>
-                                <TextareaInputComponent 
-                                    value={this.state.value}
-                                    onChange={(value)=>this.setState({value})}/>
-                            </div>
-                            <div style={{width: '20%',height: '100%',display:'flex',
-                                flexDirection:'column',alignItems: 'center'}}>
+        <HeaderBarComponent/>
 
-                             
-                                <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent 
-                                        onClick={()=>alert('Đã lưu nháp vào tài khoản của bạn.')}
-                                        label='Lưu nháp' color={YELLOW_1}/>
-                                </div>
+        <div style={styles.body}>
+          <div style={{flex: 1}}/>
+          <iframe width="100%" height="100%"
+                  src="https://xd.adobe.com/embed/af9ddbba-ba72-4bd1-872e-b73b34939462-face/screen/580892f3-357e-4014-9dfd-0f7c822adc51" frameBorder="0"
+                  allowFullScreen/>
+          <div style={{flex: 1}}/>
 
-                                <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent 
-                                        onClick={this.openModal}
-                                    label='Tra từ' color={GREEN_1}/>
-                                </div>
 
-                                <div style={{width: '80%',marginTop:20}}>
-                                    <ButtonComponent
-                                     onClick={()=>{
-                                        if (this.state.value===''){
-                                            alert("Bạn đã nhập gì đâu mà đòi xóa ?")
-                                        }
-                                        else  {
-                                         this.setState({
-                                             value:''
-                                         })
-                                         alert('Hãy cẩn thận hơn để tránh lãng phí thời gian của bạn!')
-                                        }}}
-                                     label='Xóa hết' color={RED_1}/>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div style={{flex:1}}/>
+        </div>
 
-     
-                </div>
-            
-                
-                
 
-               
-            </div>
-            
-        )
-    }
+      </div>
+
+    );
+  }
 }
 
-const styles={
-    container:{
-        width:'100vw',
-        height:'100vh',
-        display:'flex',
-        flexDirection: 'column',
-        backgroundColor: GRAY_6
-    },
-    content_body:{
-        flex:BODY.FLEX,
-        display:'flex',
-        height:'75vh',
-        flexDirection: 'column'
-    },
-    body:{
-        width:'100vw',
-        height: '100%',
-        display:'flex',
-        flexDirection: 'row',
-        paddingTop:BODY.PADDING_TOP
-    }
-}
+const styles = {
+  container: {
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: GRAY_6
+  },
+  content_body: {
+    flex: BODY.FLEX,
+    display: 'flex',
+    height: '75vh',
+    flexDirection: 'column'
+  },
+  body: {
+    backgroundColor: '#F0F2FD',
+    width: '100vw',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    paddingTop: BODY.PADDING_TOP
+  }
+};
 
 
 // const mapStateToProps = state => ({

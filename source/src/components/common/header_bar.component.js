@@ -1,9 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
-import{Link} from 'react-router-dom'
-import {routePaths, TEXT_SIZES} from '../../utils/constants'
-import { BLACK, WHITE } from '../../utils/palette';
+import{Link,NavLink} from 'react-router-dom'
+import {bullshitIcons, routePaths, TEXT_SIZES} from '../../utils/constants'
+import { BLACK, BLUE_1,GRAY_2, WHITE } from '../../utils/palette';
 import logo from '../../assets//images/logo.png'
+import * as Icons from "react-icons/fa"
+import {IconContext} from 'react-icons'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 import Modal from 'react-modal';
@@ -85,14 +87,26 @@ class HeaderBarComponent extends Component {
 
                 <div style={styles.col2}>
 
-                    {
-                        headerBarItems.map((item)=>(
-                            <Link to ={item.screen}
-                                style={styles.item}>
-                                {item.label}
-                             </Link>
-                        ))
-                    }
+          {
+            headerBarItems.map((item) => {
+              let defautColor = WHITE;
+              if (window.location.pathname === item.screen) {
+                defautColor = YELLOW_1;
+              }
+              return (<button onMouseOver={e => this.changeBackground(e, GREEN_1)}
+                              onMouseOut={e => this.changeBackground(e, BLACK)}
+                              onClick={e => this.changeBackground(e, GREEN_2)}
+                              style={{background: defautColor}}
+              >
+                <Link to={item.screen}
+                      style={styles.item}>
+                  {item.label}
+                </Link>
+
+              </button>);
+
+            })
+          }
 
                 </div>
 
