@@ -18,7 +18,6 @@ const styles={
     label:{
         fontSize:TEXT_SIZES.SMALL,
         paddingTop:4,
-        paddingLeft:4,
         paddingLeft:7,
         paddingRight:7,
         borderRadius:5}
