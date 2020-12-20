@@ -1,9 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import { routePaths, TEXT_SIZES } from '../../utils/constants'
-import { BLACK, BLUE_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
-import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
+import { TEXT_SIZES } from '../../utils/constants'
+import {  BLUE_1, WHITE } from '../../utils/palette'
 export default class HeaderListComponent extends Component {
     render(){
      

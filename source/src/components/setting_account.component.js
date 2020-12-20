@@ -4,7 +4,6 @@ import { WHITE } from './../utils/palette'
 import HeaderListComponent from './common/header_list.component'
 
 import LabeledInputComponent from './input/labeled_input.component'
-import LabeledSelectedInputComponent from './input/labeled_selected_input.component'
 
 import avatar from '../assets/images/kol_review3.jpg'
 import sample_db from '../sample_db/sample_db.json'

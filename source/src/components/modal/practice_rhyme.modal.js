@@ -1,12 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
 import Modal from 'react-modal';
-import {  TEXT_SIZES } from '../../utils/constants';
+import {TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
+import PracRhymeListComponent from '../practice/prac_rhyme_list.component'
 
-import PracParagraphListComponent from '../practice/prac_paragraph_list.component';
-export default class PracticeParagraphModal extends Component {
+export default class PracticeRhymeModal extends Component {
 
     render(){
         const is_open=this.props.is_open
@@ -16,10 +16,12 @@ export default class PracticeParagraphModal extends Component {
                 style={styles.modal}>
                         <div style={styles.container}>
                             <text style={styles.big_text}>
-                                Vừa luyện tập ,vừa đọc thơ hay!
+                                Bạn yên tâm! Mỗi bài học đều đảm bảo chỉ từ 5 - 9 quy tắc.
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>
-                                <PracParagraphListComponent/>
+                                <PracRhymeListComponent
+                                    clickItem={this.props.clickItem}
+                                    />
                             </div>
                           
 
@@ -29,8 +31,6 @@ export default class PracticeParagraphModal extends Component {
                                         <ButtonComponent height={40} color={RED_1} label='Thoát' 
                                             onClick={this.props.close}/>
                                     </div>
-                                
-
                                 </div>
                             </div>
                         </div>
@@ -94,4 +94,8 @@ const styles={
         color:RED_1
     }
 }
+
+
+
+
 

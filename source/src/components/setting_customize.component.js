@@ -5,7 +5,6 @@ import HeaderListComponent from './common/header_list.component'
 
 
 import LabeledSelectedInputComponent from './input/labeled_selected_input.component'
-import {BUSINESS_AREA_DOMAIN, COMPANY_SIZES_DOMAIN} from './../utils/constants'
 export const MAIN_COLORS=[
 
     BLUE_1,YELLOW_1,RED_1,GREEN_1

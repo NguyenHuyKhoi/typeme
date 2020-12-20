@@ -1,12 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
 import Modal from 'react-modal';
-import {  TEXT_SIZES } from '../../utils/constants';
+import {TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
-
-import PracParagraphListComponent from '../practice/prac_paragraph_list.component';
-export default class PracticeParagraphModal extends Component {
+import PracWordListComponent from '../practice/prac_word_list.component';
+export default class PracticeWordModal extends Component {
 
     render(){
         const is_open=this.props.is_open
@@ -16,10 +15,10 @@ export default class PracticeParagraphModal extends Component {
                 style={styles.modal}>
                         <div style={styles.container}>
                             <text style={styles.big_text}>
-                                Vừa luyện tập ,vừa đọc thơ hay!
+                                Gõ từ theo từng chủ đề giúp bạn tập trung hơn!
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>
-                                <PracParagraphListComponent/>
+                                <PracWordListComponent/>
                             </div>
                           
 

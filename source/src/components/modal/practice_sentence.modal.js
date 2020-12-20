@@ -4,13 +4,8 @@ import Modal from 'react-modal';
 import { routePaths, TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
-import LabeledSelectedInputComponent from '../input/labeled_selected_input.component';
-import LabeledInputComponent from '../input/labeled_input.component';
-import TextareaInputComponent from '../input/textarea_input.component';
-import { Link } from 'react-router-dom';
-import RoomHistoryListComponent from '../room_history_list.component'
-import LessonListComponent from '../lesson_list.component'
-import SentenceListComponent from '../sentence_list.component';
+
+import PracSentenceListComponent from '../practice/prac_sentence_list.component';
 export default class PracticeSentenceModal extends Component {
 
     render(){
@@ -24,16 +19,15 @@ export default class PracticeSentenceModal extends Component {
                                 Luyện tập với những câu danh ngôn ý nghĩa !
                             </text>
                             <div style={{width:'90%',overflowY: 'scroll',padding: 15}}>
-                                <SentenceListComponent
-                                    clickItem={this.props.clickItem}
-                                    />
+                                <PracSentenceListComponent/>
                             </div>
                           
 
                             <div style={styles.footer}>
                                 <div style={{...styles.btn_container}}>
                                     <div style={{width: '15%'}}>
-                                        <ButtonComponent height={40} color={RED_1} label='Thoát' onClick={this.props.clickCancel}/>
+                                        <ButtonComponent height={40} color={RED_1} label='Thoát' 
+                                            onClick={this.props.close}/>
                                     </div>
                                 
 

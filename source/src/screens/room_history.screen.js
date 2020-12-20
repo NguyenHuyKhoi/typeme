@@ -4,9 +4,6 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import FeedbackListComponent from '../components/room_list.component';
-
-import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK ,GRAY_6} from '../utils/palette';
 import RoomHistoryListComponent from '../components/room_history_list.component';

@@ -2,9 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from './../utils/constants'
-import { collapseText } from './../utils/helper'
 import { BLACK, BLUE_1, GRAY_2, GRAY_5, RED_1, WHITE } from './../utils/palette'
-import ButtonComponent from './common/button.component'
 import CustomIconComponent from './common/custom_icon.component'
 import WordListComponent from './word_list.component'
 

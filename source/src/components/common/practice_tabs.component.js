@@ -2,7 +2,11 @@
 import React, {Component} from 'react'
 import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, BLUE_1, GRAY_4, WHITE } from '../../utils/palette';
-const taskTabItems=[
+
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
+
+const tabs=[
     {
         label:'Phím'
     },
@@ -36,18 +40,22 @@ class TabBar extends Component{
         )
     }
 }
-export default class TaskTabsBarComponent extends Component {
+ class PracticeTabsBarComponent extends Component {
     render(){
-        const focus_tab_index=this.props.focus_tab_index;
+        const practice_mode=this.props.user_infor.practice_mode;
         return (
             <div style={styles.container}>
                 {
-                    taskTabItems.map((item,index)=>
+                    tabs.map((item,index)=>
                         <TabBar
                             key={''+index} 
                             item={item}
-                            is_focused={index===focus_tab_index}
-                            onClick={()=>this.props.onClickTab(index)}/>
+                            is_focused={index===practice_mode}
+                            onClick={()=>this.props.choosePracticeMode(
+                                {
+                                    practice_mode:index
+                                }
+                            )}/>
                     )
                 }   
         </div>
@@ -73,3 +81,9 @@ const styles={
         flexDirection: 'row'
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(PracticeTabsBarComponent)

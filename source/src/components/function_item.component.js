@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { bullshitIcons, routePaths, TEXT_SIZES } from '../utils/constants'
 import { BLACK, BLUE_0, BLUE_1, GRAY_1, GRAY_2, GRAY_3, WHITE } from '../utils/palette'
-import {IconContext} from 'react-icons'
 
 
 export default class FunctionItemComponent extends Component {

@@ -5,7 +5,6 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 
-import { TEXT_SIZES } from '../utils/constants';
 import { BLACK,GRAY_6 } from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
 

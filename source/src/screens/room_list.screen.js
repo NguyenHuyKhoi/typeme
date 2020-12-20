@@ -1,12 +1,9 @@
 //import from library 
 import React, {Component} from 'react'
-import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import FeedbackListComponent from '../components/room_list.component';
 
-import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
 import { BLACK ,GRAY_6} from '../utils/palette';
 import RoomListComponent from '../components/room_list.component';

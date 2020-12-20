@@ -1,13 +1,10 @@
 //import from library 
 import React, {Component} from 'react'
 import Modal from 'react-modal';
-import { routePaths, TEXT_SIZES } from '../../utils/constants';
+import {TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
-import LabeledSelectedInputComponent from '../input/labeled_selected_input.component';
-import LabeledInputComponent from '../input/labeled_input.component';
 import TextareaInputComponent from '../input/textarea_input.component';
-import { Link } from 'react-router-dom';
 
 import sample_db from '../../sample_db/sample_db.json'
 import WordListComponent from '../word_list.component';

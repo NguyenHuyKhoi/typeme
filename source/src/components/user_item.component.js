@@ -1,11 +1,9 @@
 //import from library 
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from './../utils/constants'
 import { BLACK, BLUE_0, GRAY_1, GRAY_3, WHITE, YELLOW_1 } from './../utils/palette'
-import ButtonComponent from './common/button.component'
+
 import InforsBarComponent from './common/infors_bar.component'
-import SmallFieldComponent from './common/small_field.component'
 
 export default class UserItemComponent extends Component {
     render(){

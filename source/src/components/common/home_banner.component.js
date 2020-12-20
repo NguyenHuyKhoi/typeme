@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import banner from '../../assets//images/banner2.jpg'
 import { BLACK, BLUE_1, GRAY_2, WHITE, YELLOW_1 } from '../../utils/palette'
-import ButtonComponent from './button.component'
 import ButtonInputComponent from '../input/button_input.component'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
 
