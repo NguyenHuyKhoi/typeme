@@ -42,7 +42,7 @@ class SettingCustomizeComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                       // onChange={(value)=>this.props.chooseBackgroundColor({color:value})} 
+                                        onChange={(value)={}} 
                                         label='Màu chủ đạo'
                                         domain={MAIN_COLORS}
                                         value={MAIN_COLORS[0]}/>
