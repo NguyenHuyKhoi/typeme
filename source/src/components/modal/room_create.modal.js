@@ -31,13 +31,13 @@ export default class RoomCreateModal extends Component {
                                 <TextareaInputComponent   label='Mô tả :'/>
                             </div>
                             <div style={{width: '80%',marginTop: 10}}>
-                                <LabeledSelectedInputComponent  label='Số người chơi :'
+                                <LabeledSelectedInputComponent  
+                                    onChange={(value)=>{}}
+                                    label='Số người chơi :'
                                     value={2} domain={[1,2,3,4,5,6,7,8,9]}/>
                             </div>
                            
                             
-
-                            {/* <LabeledSelectedInputComponent/> */}
 
                             <div style={styles.footer}>
                                 <div style={{...styles.btn_container,marginRight: 150}}>

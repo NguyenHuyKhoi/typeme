@@ -4,7 +4,8 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
 import { BLACK ,GRAY_6} from '../utils/palette';
 import RoomListComponent from '../components/room_list.component';
@@ -12,7 +13,7 @@ import PracticeComponent from '../components/practice.component';
 import RoomWayComponent from '../components/room_way.component';
 
 
-export default class RoomPlayScreen extends Component {
+ class RoomPlayScreen extends Component {
 
     constructor(props){
         super(props);
@@ -25,7 +26,7 @@ export default class RoomPlayScreen extends Component {
     render(){
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
@@ -78,3 +79,9 @@ const styles={
         alignItems: 'center'
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(RoomPlayScreen)

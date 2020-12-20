@@ -6,15 +6,17 @@ import HomeBannerComponent from '../components/common/home_banner.component';
 import KolReviewListComponent from '../components/kol_review_list.component';
 import { BLACK, BLUE_1, GRAY_6, WHITE } from '../utils/palette';
 import FunctionListComponent from '../components//function_list.component';
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
 
 
    
     render(){
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
                 
               
                 <HeaderBarComponent/>
@@ -52,3 +54,10 @@ const styles={
         paddingBottom:100
     }
 }
+
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(HomeScreen)

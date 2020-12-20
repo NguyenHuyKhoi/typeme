@@ -7,16 +7,17 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 
 import { BLACK,GRAY_6 } from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
-
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 import sample_db from '../sample_db/sample_db.json'
 const users=sample_db.users;
 
-export default class RoomResultScreen extends Component {
+class RoomResultScreen extends Component {
 
     render(){
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
                 <FeedbackModal
                       is_open={false} />
 
@@ -60,3 +61,9 @@ const styles={
         paddingTop:50
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(RoomResultScreen)

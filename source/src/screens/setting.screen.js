@@ -12,13 +12,14 @@ import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
 import HeaderBarComponent from '../components/common/header_bar.component'
 import SettingCustomizeComponent from '../components/setting_customize.component'
-export default class SettingScreen extends Component {
+
+class SettingScreen extends Component {
  
 
     render(){
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
                 
                 <HeaderBarComponent />
                 
@@ -41,7 +42,7 @@ export default class SettingScreen extends Component {
                                 to={routePaths.DASHBOARD_TASK_LIST}
                             style={{marginTop:50,width:'25%',textDecoration:'none'}}>
                             <ButtonComponent 
-                                onClick={this.updateSetting}
+                                onClick={()=>alert('Đã cập nhật thành công!!!')}
                                 label='Lưu thay đổi' height={60}/>
                         </Link>
                         
@@ -64,7 +65,7 @@ export default class SettingScreen extends Component {
 const styles={
     container:{
         width:'100vw',
-        height:'100vh',
+        height:'100%',
         display:'flex',
         flexDirection: 'column',
         backgroundColor: GRAY_6
@@ -84,7 +85,11 @@ const styles={
    
 }
 
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
 
+export default connect(mapStateToProps,action)(SettingScreen)
 // const mapStateToProps = state => ({
 // 	user_infor: state.user_infor,
 // });

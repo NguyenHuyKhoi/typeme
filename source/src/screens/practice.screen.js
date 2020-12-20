@@ -27,7 +27,7 @@ class PracticeScreen extends Component {
         console.log('User_infor:',this.props.user_infor)
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
 
                 <HeaderBarComponent/>
 

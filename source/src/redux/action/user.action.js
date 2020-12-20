@@ -15,6 +15,33 @@ export const chooseHeaderItem=(payload)=>{
         payload:payload
     }
 }
+
+export const chooseBackgroundColor=(payload)=>{
+    console.log('background:',payload);
+    return {
+        type:USER_ACTIONS.CHOOSE_BACKGROUND_COLOR,
+        payload:payload
+    }
+}
+
+export const chooseKeyboardColor=(payload)=>{
+    console.log('background:',payload);
+    return {
+        type:USER_ACTIONS.CHOOSE_KEYBOARD_COLOR,
+        payload:payload
+    }
+}
+
+
+export const chooseStenoColor=(payload)=>{
+    console.log('steno:',payload);
+    return {
+        type:USER_ACTIONS.CHOOSE_STENO_COLOR,
+        payload:payload
+    }
+}
+
+
 export const choosePracticeMode=(payload)=>{
     console.log('action choose_practice_mode:',payload);
     return {

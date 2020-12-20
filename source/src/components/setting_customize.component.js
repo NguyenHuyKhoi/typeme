@@ -1,8 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
-import { BLUE_1, GREEN_1, GREEN_2, WHITE,INDIGO_0, YELLOW_1,GRAY_2,GRAY_3,RED_2 ,RED_1} from './../utils/palette'
+import { BLUE_1, GREEN_1,GRAY_1,BLUE_0, GREEN_2, WHITE,INDIGO_0,BLUE_2, YELLOW_1,GRAY_2,GRAY_3,RED_2 ,RED_1, YELLOW_2} from './../utils/palette'
 import HeaderListComponent from './common/header_list.component'
 
+
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 
 import LabeledSelectedInputComponent from './input/labeled_selected_input.component'
 export const MAIN_COLORS=[
@@ -11,17 +14,18 @@ export const MAIN_COLORS=[
 ]
 
 export const BACKGROUND_COLORS=[
-    GRAY_2,GRAY_3,RED_2,GREEN_2
+    GRAY_2,GRAY_3,RED_2,GREEN_2,YELLOW_2, INDIGO_0,GREEN_1,BLUE_2,GRAY_1
 ]
 
 export const STENO_KEYBOARD_COLORS=[
-    BLUE_1,YELLOW_1,INDIGO_0,GREEN_1
+    BLUE_1,YELLOW_1,INDIGO_0,GREEN_1,RED_1,BLUE_0,RED_2
 ]
 
 export const NORMAL_KEYBOARD_COLORS=[
     GRAY_2,GRAY_3,RED_2,GREEN_2
 ]
-export default class SettingCustomizeComponent extends Component {
+
+class SettingCustomizeComponent extends Component {
    
 
     render(){
@@ -38,14 +42,15 @@ export default class SettingCustomizeComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                        //  onChange={(value)=>this.props.updateInputs('employee_size',value)} 
+                                       // onChange={(value)=>this.props.chooseBackgroundColor({color:value})} 
                                         label='Màu chủ đạo'
                                         domain={MAIN_COLORS}
                                         value={MAIN_COLORS[0]}/>
                                 </div>
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                        //  onChange={(value)=>this.props.updateInputs('employee_size',value)} 
+    
+                                        onChange={(value)=>this.props.chooseBackgroundColor({color:value})} 
                                         label='Màu nền'
                                         domain={BACKGROUND_COLORS}
                                         value={BACKGROUND_COLORS[0]}/>
@@ -56,7 +61,7 @@ export default class SettingCustomizeComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                        //  onChange={(value)=>this.props.updateInputs('employee_size',value)} 
+                                      onChange={(value)=>this.props.chooseStenoColor({color:value})} 
                                         label='Màu bàn phím tốc ký'
                                         domain={STENO_KEYBOARD_COLORS}
                                         value={STENO_KEYBOARD_COLORS[0]}/>
@@ -66,6 +71,7 @@ export default class SettingCustomizeComponent extends Component {
                                     <LabeledSelectedInputComponent 
                                         // onChange={(value)=>this.props.updateInputs('business_area',value)} 
                                         label='Màu bàn phím thường'
+                                        onChange={(value)=>this.props.chooseKeyboardColor({color:value})} 
                                         domain={NORMAL_KEYBOARD_COLORS}
                                         value={NORMAL_KEYBOARD_COLORS[0]} />
                                 </div>
@@ -126,3 +132,8 @@ const styles={
     }
 }
 
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(SettingCustomizeComponent)

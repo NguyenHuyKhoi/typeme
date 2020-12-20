@@ -326,6 +326,8 @@ class PracticeComponent extends Component {
 
                     <div style={{flex:1,marginLeft:30,marginRight: 30}}>
                         <KeyboardComponent
+                            default_steno_color={this.props.user_infor.steno_color}
+                            default_keyboard_color={this.props.user_infor.keyboard_color}
                             completeLesson={this.completeLesson}
                             typeWrong={()=>this.props.typeWrong({})}
                             typeCorrect={()=>this.props.typeCorrect({})}

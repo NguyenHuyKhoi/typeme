@@ -1,6 +1,7 @@
 import { USER_ACTIONS } from "../constant/index.constant";
 import sample_db from '../../sample_db/sample_db.json'
 import { CONTENT_MODE, PRACTICE_MODE,WORD_STATE } from "../../utils/constants";
+import { GRAY_2, GRAY_6, INDIGO_0 } from "../../utils/palette";
 
 const practice_lessons=sample_db.practice_lessons
 const practice_processes=sample_db.practice_processes
@@ -18,7 +19,10 @@ const initial_user_info={
     current_word_index:0,
     correct_words:0,
     reset_timer:true,
-    choosed_header_item:0
+    choosed_header_item:0,
+    background_color:GRAY_6,
+    steno_color:INDIGO_0,
+    keyboard_color:GRAY_2
 };
 
 let userReducer=(state=initial_user_info,action)=>{
@@ -123,6 +127,28 @@ let userReducer=(state=initial_user_info,action)=>{
                 ...state,
                 choosed_header_item:index
             }
+
+        case USER_ACTIONS.CHOOSE_BACKGROUND_COLOR:
+            let color=payload.color
+            return {
+                ...state,
+                background_color:color
+            }
+        case USER_ACTIONS.CHOOSE_STENO_COLOR:
+            let color2=payload.color
+            return {
+                ...state,
+                steno_color:color2
+            }
+
+        case USER_ACTIONS.CHOOSE_KEYBOARD_COLOR:
+            let color3=payload.color
+            return {
+                ...state,
+                keyboard_color:color3
+            }
+
+        
 
         default :
             return state;

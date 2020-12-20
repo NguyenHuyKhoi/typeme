@@ -19,6 +19,8 @@ class Button extends Component{
         const is_steno=button.is_steno;
         const state=this.props.state
         const layer_index=this.props.layer_index
+        const default_steno_color=this.props.default_steno_color;
+        const default_keyboard_color=this.props.default_keyboard_color
         return (
             <div 
                 style={{
@@ -28,11 +30,13 @@ class Button extends Component{
                     backgroundColor:
                         !is_steno?
                             layer_index===2?
-                                GRAY_2
+                                default_keyboard_color
                                 :
                                 'rgba(0,0,0,0'
                         :
-                        STENO_BUTTON_COLORS[state]}}>
+                        state!==3?STENO_BUTTON_COLORS[state]
+                        :default_steno_color
+                        }}>
 
                 {
                     button.char_2!==undefined?
@@ -177,6 +181,8 @@ export default class KeyboardComponent extends Component{
         const steno_buttons=this.state.steno_buttons;
         const layer_index=this.props.layer_index
         const enable=this.props.enable;
+
+
         return (
             <div 
              //   onKeyDown={this.handleKeyDown}
@@ -212,10 +218,12 @@ export default class KeyboardComponent extends Component{
                                     console.log('State ',button.char_2,state)
                                     return (
                                         <Button 
+                                            default_keyboard_color={this.props.default_keyboard_color}
                                             button={button}
                                             key={''+index}
                                             layer_index={layer_index}
                                             state={state}
+                                            default_steno_color={this.props.default_steno_color}
                                             />
                                     )
                                     })

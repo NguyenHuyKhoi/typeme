@@ -4,7 +4,8 @@ import FeedbackModal from '../components/feed_back.modal';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
 import { BLACK ,GRAY_6} from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
@@ -12,7 +13,7 @@ import UserListComponent from '../components/user_list.component';
 import sample_db from '../sample_db/sample_db.json'
 const users=sample_db.users;
 
-export default class RoomDetailScreen extends Component {
+class RoomDetailScreen extends Component {
 
     constructor(props){
         super(props);
@@ -42,7 +43,7 @@ export default class RoomDetailScreen extends Component {
         };
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
 
                 <HeaderBarComponent/>
 
@@ -84,3 +85,8 @@ const styles={
         paddingTop:BODY.PADDING_TOP
     }
 }
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(RoomDetailScreen)

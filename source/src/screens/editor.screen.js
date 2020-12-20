@@ -5,13 +5,14 @@ import { BODY } from '../utils/constants'
 import {  GRAY_6,GREEN_1,RED_1,WHITE, YELLOW_1 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
-
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 import HeaderBarComponent from '../components/common/header_bar.component'
 import TextareaInputComponent from '../components/input/textarea_input.component'
 import DictionaryModal from '../components/modal/dictionary.modal'
 
 
-export default class EditorScreen extends Component {
+class EditorScreen extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -38,7 +39,7 @@ export default class EditorScreen extends Component {
     render(){
         return (
 
-            <div style={styles.container}>
+            <div style={{...styles.container,backgroundColor: this.props.user_infor.background_color}}>
                 
                 <DictionaryModal
                     is_open={this.state.show_modal} 
@@ -143,8 +144,8 @@ const styles={
 }
 
 
-// const mapStateToProps = state => ({
-// 	user_infor: state.user_infor,
-// });
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
 
-// export default connect(mapStateToProps,action)(DashboardSettingCompanyScreen)
+export default connect(mapStateToProps,action)(EditorScreen)
