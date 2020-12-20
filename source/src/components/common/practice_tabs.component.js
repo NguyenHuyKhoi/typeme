@@ -51,6 +51,7 @@ class TabBar extends Component{
                             key={''+index} 
                             item={item}
                             is_focused={index===practice_mode}
+                            onMouseOver={e=>e.target.style.cursor = "pointer"}
                             onClick={()=>this.props.choosePracticeMode(
                                 {
                                     practice_mode:index

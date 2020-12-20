@@ -49,7 +49,6 @@ class SettingCustomizeComponent extends Component {
                                 </div>
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-    
                                         onChange={(value)=>this.props.chooseBackgroundColor({color:value})} 
                                         label='Màu nền'
                                         domain={BACKGROUND_COLORS}
@@ -61,7 +60,7 @@ class SettingCustomizeComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                      onChange={(value)=>this.props.chooseStenoColor({color:value})} 
+                                      onChange={(value)=>this.props.chooseStenoColor({color:value})}
                                         label='Màu bàn phím tốc ký'
                                         domain={STENO_KEYBOARD_COLORS}
                                         value={STENO_KEYBOARD_COLORS[0]}/>

@@ -1,13 +1,13 @@
 //import from library 
-import React, {Component} from 'react'
-import{Link,NavLink} from 'react-router-dom'
-import {bullshitIcons, routePaths, TEXT_SIZES} from '../../utils/constants'
-import { BLACK, BLUE_1,GRAY_2, GREEN_1, GREEN_2, WHITE ,YELLOW_1} from '../../utils/palette';
-import logo from '../../assets//images/logo.png'
-import * as Icons from "react-icons/fa"
-import {IconContext} from 'react-icons'
-import {connect }from 'react-redux'
-import * as action from '../../redux/action/user.action'
+import React, {Component} from 'react';
+import {Link, NavLink} from 'react-router-dom';
+import {bullshitIcons, routePaths, TEXT_SIZES} from '../../utils/constants';
+import {BLACK, BLUE_1, GRAY_2, GREEN_1, GREEN_2, WHITE, YELLOW_1} from '../../utils/palette';
+import logo from '../../assets//images/logo.png';
+import * as Icons from 'react-icons/fa';
+import {IconContext} from 'react-icons';
+import {connect} from 'react-redux';
+import * as action from '../../redux/action/user.action';
 import Modal from 'react-modal';
 import AuthModal from './auth.modal';
 
@@ -87,35 +87,33 @@ class HeaderBarComponent extends Component {
 
                 <div style={styles.col2}>
 
-                {
-                    headerBarItems.map((item,index) => 
-                        // let defautColor = WHITE;
-                        // if (window.location.pathname === item.screen) {
-                        //     defautColor = YELLOW_1;
-                        // }
-                        // return (
-        //                 <button onMouseOver={e => this.changeBackground(e, GREEN_1)}
-        //                                 onMouseOut={e => this.changeBackground(e, BLACK)}
-        //                                 onClick={e => this.changeBackground(e, GREEN_2)}
-        //                                 style={{background: defautColor}}
-        //  >
-                            <Link 
-                                to={item.screen}
-                                onClick={()=>this.props.chooseHeaderItem({index:index})}
-                                style={{...styles.item,
-                                        color:this.props.user_infor.choosed_header_item===index?
-                                        BLUE_1:BLACK}}>
-                                {item.label}
-                            </Link>
+          {
+            headerBarItems.map((item) => {
+              let defautColor = BLACK;
+              if (window.location.pathname === item.screen) {
+                defautColor =BLUE_1 ;
+              }
+              return (
+                <text onMouseOver={e => e.target.style.color = YELLOW_1}
+                        onMouseOut={e => e.target.style.color = defautColor}
+                        onClick={e => e.target.style.color = GREEN_2}
+                        style={{color: defautColor}}
+                >
+                  <Link to={item.screen}
+                        style={styles.item}>
+                    {item.label}
+                  </Link>
 
-                        // </button>);
+                </text>);
 
-                        // })
-                    )}
-                    </div>
-                </div> 
-        )
-    }
+            })
+          }
+        </div>
+      </div>
+
+
+    );
+  }
 }
 
 const styles={
