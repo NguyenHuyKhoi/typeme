@@ -1,50 +1,57 @@
 //import from library 
 import React, {Component} from 'react'
-import { routePaths, TEXT_SIZES } from '../utils/constants'
-import { BLACK, GRAY_2, GRAY_5, WHITE } from '../utils/palette'
-import WordListComponent from './word_list.component'
+import { Link } from 'react-router-dom'
+import { TEXT_SIZES } from '../../utils/constants'
+import { BLACK, GRAY_2, GRAY_5, WHITE } from '../../utils/palette'
+import ButtonComponent from '../common/button.component'
+import WordListComponent from '../word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
-export default class RoomHistoryItemComponent extends Component {
 
+export default class PracWordItemComponent extends Component {
+
+    collapseText=(text)=>{
+        return text.substring(0,Math.min(text.length,70));
+    }
     render(){
-        const room=this.props.room;
+        const lesson=this.props.lesson;
+        const index=this.props.index;
         return (
             
             <div style={styles.container}>
     
                 <div style={styles.col1}>
 
-                    <div style={{flex:1,display:'flex',flexDirection:'column'}}>
-                        <text style={styles.task_name}>
-                            {room.name}
-                        </text>
+                    <div style={{flex:2,display:'flex',flexDirection:'column'}}>
+                        <text style={styles.normal_text}>
+                                {'Bài '+index+' :'+this.collapseText(lesson.title)}
+                            </text>
+                            {/* <text style={styles.small_text}>
+                                {sentence.author}
+                            </text> */}
 
-                        <text style={styles.task_time}>
-                            {room.time}
-                        </text>
                     </div>
 
                     <div style={styles.skills_container}>
                         <WordListComponent list={[
-                            "Hạng : "+room.cur_users+'/'+room.max_users ,
-                            "Wpm : "+room.wpm,
-                            "Độ chính xác : "+room.accuracy
-                            ]}/>
+                            "Có : "+ lesson.content.split(" ").length+" từ"
+                            // 'Số quy tắc : '+lesson.rules,
+                            // 'Mức độ :'+lesson.level
+                        ]}/>
                     </div>
                     
                 
                 </div>
 
-                {/* <div style={styles.col2}>
+                <div style={styles.col2}>
 
 
                     <Link  
-                        to={routePaths.ROOM_DETAIL}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Vào chơi'/>
+                        <ButtonComponent  onClick={this.props.clickItem} label='Luyện ngay'/>
+            
                     </Link>
                         
-                </div> */}
+                </div>
 
             </div>
 
@@ -58,24 +65,29 @@ export default class RoomHistoryItemComponent extends Component {
 const styles={
     container:{
         width:'100%',
-        height:150,
+        height:120,
         backgroundColor: WHITE,
         boxShadow:'3px 3px 3px 3px #707070',
-        marginTop:40,            
+        marginTop:25,            
         display:'flex',
         flexDirection: 'row'
     },
     col1:{
-        flex:8,
+        flex:9,
         display:'flex',
         flexDirection: 'column',
-        padding: 20
+        padding: 15,
+        paddingLeft: 25
     },
-    task_name:{
+    big_text:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    normal_text:{
         fontSize:TEXT_SIZES.NORMAL,
         color:BLACK
     },
-    task_time:{
+    small_text:{
         fontSize:TEXT_SIZES.SMALL,
         color:GRAY_2
     },
@@ -87,6 +99,10 @@ const styles={
     skills_container:{
         display:'flex',
         flex:1  
+    },
+    huge_text:{
+        fontSize: TEXT_SIZES.HUGE,
+        color:BLACK
     },
     col2:{
         flex:4,

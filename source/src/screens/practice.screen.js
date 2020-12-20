@@ -1,124 +1,63 @@
 //import from library 
 import React, {Component} from 'react'
-import FilterComponent from '../components/input/filter.component';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
-import api from '../sample_db/fake_api_responses.json'
-import { BODY, TEXT_SIZES } from '../utils/constants';
-import { BLACK ,GRAY_6} from '../utils/palette';
-import {BASE_URL} from '../utils/constants'
-import axios from 'axios'
+
+import { BODY, PRACTICE_MODE, TEXT_SIZES } from '../utils/constants';
+import {  GRAY_6} from '../utils/palette';
+
+
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 import PracticeTabsBarComponent from '../components/common/practice_tabs.component';
 import PracticeComponent from '../components/practice.component'
-import PracticeLessonModal from '../components/modal/practice_lesson.modal';
+import PracticeRhymeModal from '../components/modal/practice_rhyme.modal';
 import PracticeSentenceModal from '../components/modal/practice_sentence.modal';
 import PracticeParagraphModal from '../components/modal/practice_paragraph.modal';
-import PracticeWordsModal from '../components/modal/practice_words.modal';
+import PracticeWordModal from '../components/modal/practice_word.modal';
 import PracticeKeyboardModal from '../components/modal/practice_keyboard.modal';
-let modals=['keyboard_modal','lesson_modal','word_modal','sentence_modal','paragraph_modal'];
 
-export default class PracticeScreen extends Component {
 
-    constructor(props){
-        super(props);
-        const init_state={};
-        modals.map(item=>init_state[item]=false)
-        this.state={
-            focus_tab_index:0,
-            ...init_state
-        }
-    }
-
-    openModal=(modal_name)=>{
-        this.setState({
-            [modal_name]:true
-        })
-    }
-
-    closeModal=(modal_name)=>{
-        this.setState({
-            [modal_name]:false
-        })
-    }
-
+class PracticeScreen extends Component {
 
     render(){
+        const {practice_modals,practice_mode}=this.props.user_infor
 
+        console.log('User_infor:',this.props.user_infor)
         return (
 
             <div style={styles.container}>
 
                 <HeaderBarComponent/>
 
-                <PracticeKeyboardModal
-                    is_open={this.state[modals[0]]} 
-                    clickCancel={()=>this.closeModal(modals[0])}
+                <PracticeKeyboardModal 
+                    is_open={practice_modals[PRACTICE_MODE.KEYBOARD]} 
+                    close={()=> this.props.closePracticeModal({})}/>
 
-                    clickItem={()=>{
-                        alert('Bạn đã chọn bài 3, hãy cố gắng để vượt qua .')
-                        this.closeModal(modals[0]);
-                    }}/>
+                <PracticeRhymeModal
+                    is_open={practice_modals[PRACTICE_MODE.RHYME]}
+                    close={()=> this.props.closePracticeModal({})}/>
 
-                <PracticeLessonModal
-                    is_open={this.state[modals[1]]} 
-                    clickCancel={()=>this.closeModal(modals[1])}
-
-                    clickItem={()=>{
-                        alert('Bạn đã chọn bài 2, hãy cố gắng để vượt qua .')
-                        this.closeModal(modals[1]);
-                    }}/>
-
-                <PracticeWordsModal
-                    is_open={this.state[modals[2]]} 
-                    clickCancel={()=>this.closeModal(modals[2])}
-
-                    clickItem={()=>{
-                        alert('Bạn đã chọn bài 3, hãy cố gắng để vượt qua .')
-                        this.closeModal(modals[2]);
-                    }}/>
+                <PracticeWordModal
+                    is_open={practice_modals[PRACTICE_MODE.WORD]}
+                    close={()=> this.props.closePracticeModal({})}/>
 
                 <PracticeSentenceModal
-                    is_open={this.state[modals[3]]} 
-                    clickCancel={()=>this.closeModal(modals[3])}
-
-                    clickItem={()=>{
-                        alert('Bạn đã chọn bài 5, hãy cố gắng để vượt qua .')
-                        this.closeModal(modals[3]);
-                    }}/>
+                    is_open={practice_modals[PRACTICE_MODE.SENTENCE]}
+                    close={()=> this.props.closePracticeModal({})}/>
 
                 <PracticeParagraphModal
-                    is_open={this.state[modals[4]]} 
-                    clickCancel={()=>this.closeModal(modals[4])}
-
-                    clickItem={()=>{
-                        alert('Bạn đã chọn bài 3, hãy cố gắng để vượt qua .')
-                        this.closeModal(modals[4]);
-                    }}/>
-
-                
-
-
-
-
-
+                    is_open={practice_modals[PRACTICE_MODE.PARAGRAPH]}
+                    close={()=> this.props.closePracticeModal({})}/>
 
                 <div style={styles.body}>
 
                     <div style={{flex:1}}/>
-
                     <div style={styles.content_body}>
-                        <PracticeTabsBarComponent 
-                            focus_tab_index={this.state.focus_tab_index}
-                            onClickTab={(index)=>
-                                this.setState({
-                                    focus_tab_index:index
-                                })}/>
+                        <PracticeTabsBarComponent />
                         
-                        <PracticeComponent  
-                            onClick={()=>this.openModal(modals[this.state.focus_tab_index])}
-                            practice_mode={this.state.focus_tab_index}/>
+                        <PracticeComponent/>
                     </div>
 
                     <div style={{flex:1}}/>
@@ -156,3 +95,10 @@ const styles={
         alignItems: 'center'
     }
 }
+
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(PracticeScreen)

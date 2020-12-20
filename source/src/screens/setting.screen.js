@@ -7,13 +7,11 @@ import { GRAY_6 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
 import { Link } from 'react-router-dom'
-import api from '../sample_db/fake_api_responses.json'
 import {BODY} from '../utils/constants'
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
 import HeaderBarComponent from '../components/common/header_bar.component'
 import SettingCustomizeComponent from '../components/setting_customize.component'
-const setting=api.get_setting_company
 export default class SettingScreen extends Component {
  
 
@@ -35,8 +33,7 @@ export default class SettingScreen extends Component {
                         </div>
                         
                         <div style={{marginTop:60}}>
-                            <SettingCustomizeComponent 
-                                profile={setting.profile}/>
+                            <SettingCustomizeComponent />
                         </div>
 
 

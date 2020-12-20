@@ -1,9 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from './../utils/constants'
 import { BLACK, BLUE_0, GRAY_1, GRAY_3, WHITE, YELLOW_1 } from './../utils/palette'
-import InforsBarComponent from './common/infors_bar.component'
 import SmallFieldComponent from './common/small_field.component'
 
 import kol_review1 from '../assets/images/kol_review1.png'

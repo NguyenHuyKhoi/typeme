@@ -1,16 +1,42 @@
 import { USER_ACTIONS } from "../constant/index.constant"
 
-export const loginSuccess=(payload)=>{
-    console.log('receice_payload:',payload)
+export const chooseLessonIndex=(payload)=>{
+    console.log('choose_lesson:',payload);
     return {
-        type:USER_ACTIONS.LOGIN_SUCCESS,
+        type:USER_ACTIONS.CHOOSE_LESSON,
         payload:payload
     }
 }
 
-export const logoutSuccess=(payload)=>{
+export const choosePracticeMode=(payload)=>{
+    console.log('action choose_practice_mode:',payload);
     return {
-        type:USER_ACTIONS.LOGOUT_SUCCESS,
+        type:USER_ACTIONS.CHOOSE_PRACTICE_MODE,
         payload:payload
     }
 }
+
+export const chooseContentMode=(payload)=>{
+    console.log('action choose_content_mode:',payload);
+    return {
+        type:USER_ACTIONS.CHOOSE_CONTENT_MODE,
+        payload:payload
+    }
+}
+
+export const openPracticeModal=(payload)=>{
+    console.log('action open_practice_mode:',payload);
+    return {
+        type:USER_ACTIONS.OPEN_PRACTICE_MODAL,
+        payload:payload
+    }
+}
+
+export const closePracticeModal=(payload)=>{
+    console.log('action open_practice_mode:',payload);
+    return {
+        type:USER_ACTIONS.CLOSE_PRACTICE_MODAL,
+        payload:payload
+    }
+}
+

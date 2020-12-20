@@ -1,9 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 
-import HeaderListComponent from './common/header_list.component'
-import PaginationComponent from './common/pagination.component';
-import FeedbackItemComponent from './feedback_item.component';
+
 import RoomHistoryItemComponent from './room_history_item.component'
 import sample_db from '../sample_db/sample_db.json'
 

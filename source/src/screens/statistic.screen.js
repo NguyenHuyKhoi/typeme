@@ -6,8 +6,7 @@ import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, BODY } from '../utils
 import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE, YELLOW_1 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
 import ButtonComponent from '../components/common/button.component'
-import { Link } from 'react-router-dom'
-import api from '../sample_db/fake_api_responses.json'
+
 
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'

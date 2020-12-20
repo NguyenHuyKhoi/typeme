@@ -100,6 +100,19 @@ export const BUSINESS_AREA_DOMAIN=['Strategy','Marketing','Finance','Human resou
 export const COMPANY_SIZES_DOMAIN=[ '0 - 10', '10 - 50', '50 - 100', '100 - 500','Over 500']
 export const TASKS_TYPE_DOMAIN=['Fixed Price','Hourly Rate']
 
+export const CONTENT_MODE={
+    SHOW_LESSON:0,
+    SHOW_RULE:1,
+    SHOW_PROCESS:2
+}
+
+export const PRACTICE_MODE={
+    KEYBOARD:0,
+    RHYME:1,
+    WORD:2,
+    SENTENCE:3,
+    PARAGRAPH:4
+}
 
 
 export const CATEGORIES_DOMAIN=[

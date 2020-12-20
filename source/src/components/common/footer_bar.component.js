@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
-import { BLUE_1, GRAY_1, GRAY_2, WHITE } from '../../utils/palette'
+import {  GRAY_1, GRAY_2, WHITE } from '../../utils/palette'
 import ButtonComponent from './button.component'
 
 export default class FooterBarComponent extends Component {

@@ -1,6 +1,6 @@
 import react,{Component} from 'react'
 import { TEXT_SIZES } from '../utils/constants';
-import data from '../utils/data.json'
+import data from '../utils/keyboard.json'
 import { BLUE_1, GRAY_2, GRAY_4, GREEN_1, INDIGO_0, WHITE } from '../utils/palette';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 const keyboard_data=data.keyboard;

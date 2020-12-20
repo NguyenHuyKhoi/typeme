@@ -4,7 +4,6 @@ import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, GRAY_1, GRAY_2, GRAY_4, GREEN_1, WHITE } from '../../utils/palette';
 import AuthTabsComponent from './auth_tabs.component';
 import ButtonComponent from './button.component';
-import TaskTabsBarComponent from './practice_tabs.component';
 
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'

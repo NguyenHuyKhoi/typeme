@@ -1,50 +1,55 @@
 //import from library 
 import React, {Component} from 'react'
 import { routePaths, TEXT_SIZES } from '../utils/constants'
+import { collapseText } from '../utils/helper'
 import { BLACK, GRAY_2, GRAY_5, WHITE } from '../utils/palette'
 import WordListComponent from './word_list.component'
 // import SkillsListComponent from '../common/skills_list.component'
-export default class RoomHistoryItemComponent extends Component {
 
+import steno1 from '../assets/images/steno_1.PNG'
+import steno2 from '../assets/images/steno_2.PNG'
+import steno3 from '../assets/images/steno_3.PNG'
+import steno4 from '../assets/images/steno_4.PNG'
+
+const steno_images=[steno1,steno2,steno3,steno4];
+
+export default class PracKeywordItemComponent extends Component {
+
+    collapseText=(text)=>{
+        return text.substring(0,Math.min(text.length,70));
+    }
     render(){
-        const room=this.props.room;
+        const keyboard_hint=this.props.keyboard_hint;
+        const index=this.props.index;
         return (
             
             <div style={styles.container}>
     
                 <div style={styles.col1}>
 
-                    <div style={{flex:1,display:'flex',flexDirection:'column'}}>
-                        <text style={styles.task_name}>
-                            {room.name}
-                        </text>
+                    <div style={{flex:2,display:'flex',flexDirection:'column'}}>
+                        <text style={styles.normal_text}>
+                                {'Bài '+(index+1)+' :'+this.collapseText(keyboard_hint.title)}
+                            </text>
+                            {/* <text style={styles.normal_text}>
+                                {lesson.title}
+                            </text> */}
 
-                        <text style={styles.task_time}>
-                            {room.time}
-                        </text>
                     </div>
 
                     <div style={styles.skills_container}>
-                        <WordListComponent list={[
-                            "Hạng : "+room.cur_users+'/'+room.max_users ,
-                            "Wpm : "+room.wpm,
-                            "Độ chính xác : "+room.accuracy
-                            ]}/>
+                        <WordListComponent marginTop={15} list={keyboard_hint.descriptions}/>
                     </div>
                     
                 
                 </div>
 
-                {/* <div style={styles.col2}>
+                <div style={styles.col2}>
 
 
-                    <Link  
-                        to={routePaths.ROOM_DETAIL}
-                        style={styles.btn_container}>
-                        <ButtonComponent label='Vào chơi'/>
-                    </Link>
+                    <img src={steno_images[index]} style={{width:'90%',height:'70%'}}/>
                         
-                </div> */}
+                </div>
 
             </div>
 
@@ -58,24 +63,28 @@ export default class RoomHistoryItemComponent extends Component {
 const styles={
     container:{
         width:'100%',
-        height:150,
+        height:260,
         backgroundColor: WHITE,
         boxShadow:'3px 3px 3px 3px #707070',
-        marginTop:40,            
+        marginTop:25,            
         display:'flex',
         flexDirection: 'row'
     },
     col1:{
-        flex:8,
+        flex:3,
         display:'flex',
         flexDirection: 'column',
         padding: 20
     },
-    task_name:{
+    big_text:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    normal_text:{
         fontSize:TEXT_SIZES.NORMAL,
         color:BLACK
     },
-    task_time:{
+    small_text:{
         fontSize:TEXT_SIZES.SMALL,
         color:GRAY_2
     },
@@ -86,7 +95,11 @@ const styles={
     },
     skills_container:{
         display:'flex',
-        flex:1  
+        flex:6 
+    },
+    huge_text:{
+        fontSize: TEXT_SIZES.HUGE,
+        color:BLACK
     },
     col2:{
         flex:4,

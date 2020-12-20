@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { TEXT_SIZES } from '../../utils/constants'
-import { BLACK, GRAY_1, WHITE } from '../../utils/palette'
+import { BLACK, GRAY_1 } from '../../utils/palette'
 
 export default class InforsBarComponent extends Component {
     render(){

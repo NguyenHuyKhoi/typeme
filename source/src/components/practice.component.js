@@ -1,23 +1,19 @@
 //import from library 
 import React, {Component} from 'react'
 import { WHITE ,BLACK, GRAY_2, BLUE_1} from '../utils/palette'
-import HeaderListComponent from './common/header_list.component'
 
-import LabeledInputComponent from './input/labeled_input.component'
-import LabeledSelectedInputComponent from './input/labeled_selected_input.component'
-import TextareaInputComponent from './input/textarea_input.component'
-import {BUSINESS_AREA_DOMAIN, COMPANY_SIZES_DOMAIN, TEXT_SIZES,BOX_SHADOW} from '../utils/constants'
+
+import {TEXT_SIZES,BOX_SHADOW} from '../utils/constants'
 import KeyboardComponent from './keyboard.component'
-import WordListComponent from './word_list.component'
-import PracticeContentListComponent from './practice_content_list.component'
+import PracticeLessonContentComponent from './practice_lesson_content.component'
+
+
+import {connect }from 'react-redux'
+import * as action from './../redux/action/user.action'
 
 import sample_db from './../sample_db/sample_db.json'
 import KeyboardLayerTabsComponent from './common/keyboard_layer_tabs.component'
-import SmallFieldComponent from './common/small_field.component'
 import ButtonComponent from './common/button.component'
-
-const practice_contents=sample_db.practice_contents;
-const practice_lesson_rules=sample_db.lession_rules
 
 const practice_processes=sample_db.practice_processes
 const CONTENT_CARD_MODE={
@@ -130,11 +126,9 @@ class RuleItem extends Component{
     }
 }
 
-
-
 class RuleCard extends Component{
     render(){
-        const rules=this.props.rules
+        const rule=this.props.rule
         return(
             <div style={{display: 'flex',width: '100%',flexDirection: 'column',alignItems: 'center'}}>
                 <text style={{fontSize: TEXT_SIZES.BIG}}>
@@ -144,7 +138,7 @@ class RuleCard extends Component{
                     marginTop:10,
                     justifyContent:'space-between'}}>
                     {
-                        this.props.rules.map(item=>(
+                        rule.map(item=>(
                             <RuleItem rule={item}/>
                         ))
                     }
@@ -158,25 +152,30 @@ class RuleCard extends Component{
 class ContentCard extends Component{
 
     render(){
-        const practice_mode=this.props.practice_mode
-        const mode=practice_contents[this.props.practice_mode]
-        const content=mode.content
-        const title=mode.title
+        const {
+            practice_mode,
+            content_mode,
+            lesson_data,
+            rule_data,
+            process_data
+        }=this.props.user_infor
 
-        const content_mode=this.props.content_mode
 
-        console.log('mode:',mode)
+
+
+        console.log('user_infor on content_card:',this.props.user_infor)
         return (
         <div style={{width: '100%',height:'100%',display:'flex',
                 flexDirection:'column',alignItems: 'center',overflowY: 'scroll'}}>
                 {
                     content_mode===CONTENT_CARD_MODE.SHOW_LESSION?
-                        <PracticeContentListComponent
-                            onClick={this.props.onClick} 
-                            title={title} content={content}/>
+                        <PracticeLessonContentComponent
+                            onClick={this.props.clickChooseLesson} 
+                            lesson={lesson_data}
+                        />
                         :
                         content_mode===CONTENT_CARD_MODE.SHOW_RULES?
-                        <RuleCard rules={practice_lesson_rules}/>
+                        <RuleCard rule={rule_data}/>
                         :
                         <ProcessCard process={practice_processes[practice_mode-1]}/>
                 }
@@ -185,30 +184,22 @@ class ContentCard extends Component{
         )
     }
 }
-export default class PracticeComponent extends Component {
+
+class PracticeComponent extends Component {
    
     constructor(props){
         super(props);
         this.state={
-            layer_index:0,
-            content_mode:CONTENT_CARD_MODE.SHOW_LESSION,
-            practice_mode:this.props.practice_mode
+            layer_index:0
         }
-    }
-
-
-    resetContentCard=()=>{
-        this.setState({
-            practice_mode:this.props.practice_mode,
-            content_mode:CONTENT_CARD_MODE.SHOW_LESSION
-        })
     }
 
     render(){
-        const practice_mode=this.state.practice_mode;
-        if (this.props.practice_mode!==this.state.practice_mode){
-            this.resetContentCard();
-        }
+        const {
+            practice_mode,
+            content_mode
+            }=this.props.user_infor;
+
         return (
             <div style={{width: '100%',height: '75vh',marginTop:20,
                 justifyContent:'space-between',flexDirection:'column',display:'flex'}}>
@@ -221,9 +212,8 @@ export default class PracticeComponent extends Component {
                         padding:20,backgroundColor: WHITE,
                         boxShadow: BOX_SHADOW}}>
                         <ContentCard 
-                            content_mode={this.state.content_mode}
-                            onClick={this.props.onClick}
-                            practice_mode={practice_mode}/>
+                            clickChooseLesson={()=>this.props.openPracticeModal({})}
+                            user_infor={this.props.user_infor}/>
                     </div>
 
                     <div style={{width: '27%',height: '100%',
@@ -238,6 +228,7 @@ export default class PracticeComponent extends Component {
 
                             <div style={{width: '100%',height:30,display:'flex',flexDirection:'column',
                                 boxShadow: BOX_SHADOW,marginTop: 30 }}>
+
                             {/* <text style={styles.normal_text}>
                                 Chọn chế độ :
                             </text> */}
@@ -263,16 +254,16 @@ export default class PracticeComponent extends Component {
                             practice_mode===1?
                             <ButtonComponent 
                                 onClick={()=>{
-                                    if (this.state.content_mode!==CONTENT_CARD_MODE.SHOW_RULES)
-                                        this.setState({
-                                            content_mode:CONTENT_CARD_MODE.SHOW_RULES
-                                        })
-                                    else this.setState({
+                                    if (content_mode!==CONTENT_CARD_MODE.SHOW_RULES)
+                                    this.props.changeContentMode({
+                                        content_mode:CONTENT_CARD_MODE.SHOW_RULES
+                                    })
+                                    else  this.props.changeContentMode({
                                         content_mode:CONTENT_CARD_MODE.SHOW_LESSION
-                                    }) 
+                                    })
                                 }}
                                 height={45} 
-                                label={this.state.content_mode===CONTENT_CARD_MODE.SHOW_RULES?
+                                label={content_mode===CONTENT_CARD_MODE.SHOW_RULES?
                                     "Bài học":"Quy tắc"} />    
                             :
                             null
@@ -293,15 +284,15 @@ export default class PracticeComponent extends Component {
                         practice_mode>0?
                         <ButtonComponent 
                             onClick={()=>{
-                                if (this.state.content_mode!==CONTENT_CARD_MODE.SHOW_PROCESS)
-                                    this.setState({
-                                        content_mode:CONTENT_CARD_MODE.SHOW_PROCESS
-                                    })
-                                else this.setState({
+                                if (content_mode!==CONTENT_CARD_MODE.SHOW_PROCESS)
+                                this.props.changeContentMode({
+                                    content_mode:CONTENT_CARD_MODE.SHOW_PROCESS
+                                })
+                                else  this.props.changeContentMode({
                                     content_mode:CONTENT_CARD_MODE.SHOW_LESSION
-                                }) 
+                                })
                             }}
-                        height={45} label={this.state.content_mode===CONTENT_CARD_MODE.SHOW_PROCESS?
+                        height={45} label={content_mode===CONTENT_CARD_MODE.SHOW_PROCESS?
                                 "Bài học":"Tiến độ"}/>    
                       
                         :
@@ -329,4 +320,9 @@ const styles={
     }
 }
 
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(PracticeComponent)
 
