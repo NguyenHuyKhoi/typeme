@@ -10,7 +10,8 @@ export default class ButtonComponent extends Component {
         const text_color=this.props.text_color;
         const height=this.props.height;
         return (
-            <div 
+            <div
+              onMouseOver={e=>e.target.style.cursor = "pointer"}
                 onClick={this.props.onClick}
                 style={{...styles.container,
                     backgroundColor: color!==undefined?color:BLUE_1,
