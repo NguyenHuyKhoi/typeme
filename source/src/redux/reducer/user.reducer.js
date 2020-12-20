@@ -15,7 +15,9 @@ const initial_user_info={
     content_mode:CONTENT_MODE.SHOW_LESSON,
     practice_modals:[false,false,false,false,false],
     word_state:practice_lessons[0][0].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
-    current_word_index:0
+    current_word_index:0,
+    correct_words:0,
+    reset_timer:true
 };
 
 let userReducer=(state=initial_user_info,action)=>{
@@ -38,7 +40,9 @@ let userReducer=(state=initial_user_info,action)=>{
                content_mode:CONTENT_MODE.SHOW_LESSON,
                rule_data:mode===PRACTICE_MODE.RHYME?practice_rhyme_rules[0]:null,
                word_state:practice_lessons[mode][0].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
-               current_word_index:0
+               current_word_index:0,
+               correct_words:0,
+               reset_timer:true
            };
 
 
@@ -52,7 +56,9 @@ let userReducer=(state=initial_user_info,action)=>{
                 lesson_data:{...practice_lessons[mode][li],index:li},
                 rule_data:mode===PRACTICE_MODE.RHYME?practice_rhyme_rules[li]:null,
                 word_state:practice_lessons[mode][li].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
-                current_word_index:0
+                current_word_index:0,
+                correct_words:0,
+                reset_timer:true
             };
 
         case USER_ACTIONS.CHOOSE_CONTENT_MODE:
@@ -85,19 +91,30 @@ let userReducer=(state=initial_user_info,action)=>{
             wstate=state.word_state;
             cwi=state.current_word_index;
             wstate[cwi]=WORD_STATE.CORRECT;
+            let next_cwi=cwi<wstate.length-1?cwi+1:cwi
+            wstate[next_cwi]=WORD_STATE.IS_TYPING
+            return {
+                ...state,
+                word_state:wstate,
+                current_word_index:cwi<wstate.length-1?cwi+1:cwi,
+                correct_words:state.correct_words+1
+            }
+        case USER_ACTIONS.TYPE_WRONG:
+            wstate=state.word_state;
+            cwi=state.current_word_index
+            wstate[cwi]=WORD_STATE.WRONG;
+            let next_cwi2=cwi<wstate.length-1?cwi+1:cwi
+            wstate[next_cwi2]=WORD_STATE.IS_TYPING
             return {
                 ...state,
                 word_state:wstate,
                 current_word_index:cwi<wstate.length-1?cwi+1:cwi
             }
-        case USER_ACTIONS.TYPE_FAIL:
-            wstate=state.word_state;
-            cwi=state.current_word_index
-            wstate[cwi]=WORD_STATE.WRONG;
+
+        case USER_ACTIONS.RESETED_TIMER:
             return {
                 ...state,
-                word_state:wstate,
-                current_word_index:cwi<wstate.length-1?cwi+1:cwi
+                reset_timer:false
             }
 
         default :

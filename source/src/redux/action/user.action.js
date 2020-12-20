@@ -57,4 +57,13 @@ export const typeWrong=(payload)=>{
     }
 }
 
+export const resetedTimer=(payload)=>{
+    console.log('action typeFail:',payload);
+    return {
+        type:USER_ACTIONS.RESETED_TIMER,
+        payload:payload
+    }
+}
+
+
 

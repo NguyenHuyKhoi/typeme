@@ -5,7 +5,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 
-import { BODY, TEXT_SIZES } from '../utils/constants';
+import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
 import { BLACK ,GRAY_6} from '../utils/palette';
 import RoomListComponent from '../components/room_list.component';
 import PracticeComponent from '../components/practice.component';
@@ -20,14 +20,12 @@ export default class RoomPlayScreen extends Component {
             focus_tab_index:0
         }
     }
+    
 
     render(){
         return (
 
             <div style={styles.container}>
-                <FeedbackModal
-                      is_open={false} />
-
                 <HeaderBarComponent />
 
                 <div style={styles.body}>
@@ -37,7 +35,10 @@ export default class RoomPlayScreen extends Component {
                     <div style={styles.content_body}>
                         <RoomWayComponent/>
                         
-                        <PracticeComponent practice_mode={this.state.focus_tab_index}/>
+                        <PracticeComponent 
+                            game_mode={true}
+                            navToResult={()=>this.props.history.push(routePaths.ROOM_RESULT)}
+                            practice_mode={this.state.focus_tab_index}/>
                     </div>
 
                     <div style={{flex:1}}/>

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import{Link,NavLink} from 'react-router-dom'
 import {bullshitIcons, routePaths, TEXT_SIZES} from '../../utils/constants'
-import { BLACK, BLUE_1,GRAY_2, WHITE } from '../../utils/palette';
+import { BLACK, BLUE_1,GRAY_2, GREEN_1, GREEN_2, WHITE ,YELLOW_1} from '../../utils/palette';
 import logo from '../../assets//images/logo.png'
 import * as Icons from "react-icons/fa"
 import {IconContext} from 'react-icons'
@@ -87,32 +87,31 @@ class HeaderBarComponent extends Component {
 
                 <div style={styles.col2}>
 
-          {
-            headerBarItems.map((item) => {
-              let defautColor = WHITE;
-              if (window.location.pathname === item.screen) {
-                defautColor = YELLOW_1;
-              }
-              return (<button onMouseOver={e => this.changeBackground(e, GREEN_1)}
-                              onMouseOut={e => this.changeBackground(e, BLACK)}
-                              onClick={e => this.changeBackground(e, GREEN_2)}
-                              style={{background: defautColor}}
-              >
-                <Link to={item.screen}
-                      style={styles.item}>
-                  {item.label}
-                </Link>
+                {
+                    headerBarItems.map((item) => 
+                        // let defautColor = WHITE;
+                        // if (window.location.pathname === item.screen) {
+                        //     defautColor = YELLOW_1;
+                        // }
+                        // return (
+        //                 <button onMouseOver={e => this.changeBackground(e, GREEN_1)}
+        //                                 onMouseOut={e => this.changeBackground(e, BLACK)}
+        //                                 onClick={e => this.changeBackground(e, GREEN_2)}
+        //                                 style={{background: defautColor}}
+        //  >
+                            <Link to={item.screen}
+                                style={styles.item}>
+                            {item.label}
+                            </Link>
 
-              </button>);
+                        // </button>);
 
-            })
-          }
-
+                        // })
+                    )}
+                    </div>
                 </div>
+                    
 
-    
-            
-            </div>
             
         )
     }

@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { WHITE ,BLACK, GRAY_2, BLUE_1} from '../utils/palette'
-
+import { useHistory  } from 'react-router-dom'
 
 import {TEXT_SIZES,BOX_SHADOW, PRACTICE_MODE, KEYBOARD_LAYER} from '../utils/constants'
 import KeyboardComponent from './keyboard.component'
@@ -49,7 +49,7 @@ class InforCard extends Component {
 
         
                 <text style={{...styles.big_text,marginBottom: 12}}>
-                    {time}
+                    {Math.floor(time/60)+" : "+time%60}
                 </text>
 
                 <Field label =' Đã gõ (từ):' value={total_types}/>
@@ -174,6 +174,7 @@ class ContentCard extends Component{
                             word_state={word_state}
                             onClick={this.props.clickChooseLesson} 
                             lesson={lesson_data}
+                           
                         />
                         :
                         content_mode===CONTENT_CARD_MODE.SHOW_RULES?
@@ -192,17 +193,63 @@ class PracticeComponent extends Component {
     constructor(props){
         super(props);
         this.state={
-            layer_index:KEYBOARD_LAYER.ONLY_SHOW_STENO_KEYBOARD
+            layer_index:KEYBOARD_LAYER.ONLY_SHOW_STENO_KEYBOARD,
+            time:0
+
+        }
+        this.timeCount=null;
+    }
+
+    timeup=()=>{
+        let i=this.state.time;
+        this.setState({
+            time:i+1
+        })
+    }
+
+    componentDidMount=()=>{
+        this.timeCount=setInterval(this.timeup,1000);
+    }
+
+    completeLesson=()=>{
+        clearInterval(this.timeCount);
+        if (this.props.game_mode)
+        this.setState({
+            complete_lesson:true,
+            time:0
+        });
+
+        if (this.props.game_mode!==undefined){
+           this.props.navToResult();
+           alert('Bạn đã hoàn thành phần thi của mình, hãy chờ kết quả ');
+        }
+        else {
+            alert('Bạn đã hoàn thành xong bài học và đạt 15/20 điểm');
         }
     }
+
+    resetTimer= ()=>{
+        console.log('Reset timer :');
+        this.setState({
+            time:0
+        });
+       
+    };
 
     render(){
         const {
             practice_mode,
             content_mode,
             lesson_data,
-            word_state
-            }=this.props.user_infor;
+            word_state  
+        }=this.props.user_infor;
+
+        if (this.props.user_infor.reset_timer===true){
+            this.props.resetedTimer();
+            this.resetTimer();
+        }
+
+        const game_mode=this.props.game_mode!==undefined?this.props.game_mode:false
         
         console.log('word_state :',word_state)
         return (
@@ -226,10 +273,10 @@ class PracticeComponent extends Component {
                         display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
                         <InforCard infor={
                             {
-                                time : '00 : 10',
-                                correct_types: 20,
-                                total_types:30,
-                                wpm :120
+                                time : this.state.time,
+                                correct_types: this.props.user_infor.correct_words,
+                                total_types:this.props.user_infor.current_word_index,
+                                wpm :Math.floor(Math.random()*200)
                             }} />
 
                             <div style={{width: '100%',height:30,display:'flex',flexDirection:'column',
@@ -279,8 +326,10 @@ class PracticeComponent extends Component {
 
                     <div style={{flex:1,marginLeft:30,marginRight: 30}}>
                         <KeyboardComponent
+                            completeLesson={this.completeLesson}
                             typeWrong={()=>this.props.typeWrong({})}
                             typeCorrect={()=>this.props.typeCorrect({})}
+                            steno_words={lesson_data.steno_content.split(" ")}
                             enable={content_mode===CONTENT_CARD_MODE.SHOW_LESSION}
                             group={lesson_data.group} 
                             steno_content={lesson_data.steno_content}

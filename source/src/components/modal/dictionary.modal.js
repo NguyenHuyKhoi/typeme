@@ -25,7 +25,7 @@ export default class DictionaryModal extends Component {
     search=(value)=>{
         console.log('Check with value :',value)
         let count=0;
-        let limit=10;
+        let limit=7;
         let arr=[];
         for ( let i=0;i<dic_content.length;i++){
             let word=dic_content[i]

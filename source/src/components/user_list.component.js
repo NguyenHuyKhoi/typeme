@@ -13,9 +13,13 @@ export default class UserListComponent extends Component {
             <div style={styles.container}>
                 
                 <HeaderListComponent 
-                    title='Danh sách người chơi' 
+                    title={is_result?'Kết quả trận đấu':'Danh sách người chơi' }
                     des_screen={routePaths.ROOM_PLAY}
-                    right_title={'Vào trận trong : '+this.props.time_remain +' s'}/>
+                    right_title={
+                        is_result?'':
+                        this.props.enableJoin?
+                        "Vào trận":
+                        'Vào trận trong : '+this.props.time_remain +' s'}/>
                 
 
                 <div style={styles.body}>

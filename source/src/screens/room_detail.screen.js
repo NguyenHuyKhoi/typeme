@@ -17,18 +17,32 @@ export default class RoomDetailScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            time_remin:60
+            time_remain:10,
+            enable_join:false
         }
     };
 
+    componentDidMount=()=>{
+        this.timeDown=setInterval(()=>{
+            this.setState({
+                time_remain:this.state.time_remain-1
+            })
+        },1000)
+    }
 
+    enableJoin=()=>{
+        clearInterval(this.timeDown);
+        this.setState({
+            enable_join:true
+        })
+    }
     render(){
-        console.log('time :',this.state.time_remin)
+        if (this.state.enable_join===false && this.state.time_remain<4) {
+            this.enableJoin();
+        };
         return (
 
             <div style={styles.container}>
-                <FeedbackModal
-                      is_open={false} />
 
                 <HeaderBarComponent/>
 
@@ -38,7 +52,9 @@ export default class RoomDetailScreen extends Component {
                     <div style={{flex:1}}/>
 
                     <div style={{flex:BODY.FLEX}}>
-                            <UserListComponent is_result={false} users={users} time_remain={this.state.time_remin}/>
+                            <UserListComponent 
+                                enableJoin={this.state.enable_join}
+                                is_result={false} users={users} time_remain={this.state.time_remain}/>
                     </div>
                  
                     <div style={{flex:1}}/>

@@ -15,6 +15,9 @@ class Item extends Component{
                // onClick={this.props.onClick} 
                 style={{...styles.item_container,
                     backgroundColor:
+                        state==WORD_STATE.IS_TYPING?
+                        BLUE_1
+                        :
                         state===WORD_STATE.NOT_TYPED?
                             GRAY_3
                             :
@@ -23,7 +26,7 @@ class Item extends Component{
                             :
                             GREEN_1}}>
             <text style={{...styles.item_name,
-                        color: is_picked?WHITE:GRAY_1}}>
+                        color: WHITE}}>
                 {item} 
             </text>
         </div>

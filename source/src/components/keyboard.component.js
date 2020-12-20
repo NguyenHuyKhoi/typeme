@@ -67,22 +67,25 @@ export default class KeyboardComponent extends Component{
                 if (button.is_steno) steno_buttons.push(button.char_1)
             }))
 
-        let arr=this.props.steno_content.split(" ")
         this.state={
             steno_buttons:steno_buttons,
             enable_group:this.props.group,
-            words:arr,
             wrong_button:'',
             correct_button:'',
             current_word_index:0,
-            remain_current_word:arr[0]
+            remain_current_word:this.props.steno_words[0]
         };
     };
     
     nextWord=()=>{
         console.log('state_of_keyboard :',this.state.pressed_buttons,this.state.wrong_button)
         let i=this.state.current_word_index;
-        let arr=this.state.words;
+        if (i===this.props.steno_words.length-1) {
+
+            this.props.completeLesson();
+            return ;
+        }
+        let arr=this.props.steno_words;
         this.setState({
             current_word_index:i+1,
             remain_current_word:arr[i+1]
@@ -90,12 +93,24 @@ export default class KeyboardComponent extends Component{
         console.log('Next word :',arr[i+1])
     }
 
-    pressButton=async (keyname)=>{
+    convertToSteno=(k)=>{
+        const normal_btns=['Q','W','E','R','T','U','I','O',',P','[','A','S','D','F','G','J','K','L',';',',','C','V','N','M']
+        const steno_btns=['S','K','R','N','H','*','U','J',',N','T','T','P','H','N','S','I','Y','J','G','K','U','O','E','A']
+        for (let i=0;i<normal_btns.length;i++){
+            if (normal_btns[i]===k) return steno_btns[i]
+        };
+        return 'Q'
+    };
+
+    pressButton= (k)=>{
+
+        let keyname=this.convertToSteno(k);
+        console.log('remain_word',this.state.remain_current_word,keyname,k);
         if (!this.props.enable) return ;
         let remain_word=this.state.remain_current_word+'';
         if (!remain_word.includes(keyname)){
             this.props.typeWrong();
-            await this.setState({
+             this.setState({
                 wrong_button:keyname,
                 correct_button:''
             });
@@ -112,7 +127,7 @@ export default class KeyboardComponent extends Component{
             remain_word=remain_word.replace(keyname,'');
             if (remain_word===''){
                 this.props.typeCorrect();
-                await this.setState({
+                 this.setState({
                     correct_button:keyname,
                     wrong_button:''
                 })
@@ -128,7 +143,7 @@ export default class KeyboardComponent extends Component{
                 console.log('Remain word :',remain_word)
                 let str=this.state.pressed_buttons;
                 str+=keyname;
-                await this.setState({
+                 this.setState({
                     remain_current_word:remain_word,
                     wrong_button:'',
                     correct_button:keyname,
@@ -149,7 +164,7 @@ export default class KeyboardComponent extends Component{
         if (btn.char_2===undefined) return false;
 
         if (btn.group!==this.state.enable_group) return false
-        let arr=this.state.words;
+        let arr=this.props.steno_words;
         let i=this.state.current_word_index;
 
 

@@ -57,7 +57,8 @@ class PracticeScreen extends Component {
                     <div style={styles.content_body}>
                         <PracticeTabsBarComponent />
                         
-                        <PracticeComponent/>
+                        <PracticeComponent
+                            navToResult={()=>{}}/>
                     </div>
 
                     <div style={{flex:1}}/>
