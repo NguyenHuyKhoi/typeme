@@ -1,8 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import banner from '../../assets//images/banner.jpg'
-import { BLACK, BLUE_1, GRAY_2, WHITE } from '../../utils/palette'
+import banner from '../../assets//images/banner2.jpg'
+import { BLACK, BLUE_1, GRAY_2, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from './button.component'
 import ButtonInputComponent from '../input/button_input.component'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
@@ -15,17 +15,17 @@ export default class HomeBannerComponent extends Component {
                     <div style={styles.body}>
 
                         <text style={styles.title}>
-                            Hire Expert or be hire for any job, any time
+                            Đừng lo! Bạn chưa đến muộn đâu .
                         </text>
 
                         <text style={styles.description}>
-                            Thousands small company use us to make their ideas be reality.
+                            Cùng hàng ngàn người luyện tập mỗi ngày để đạt tốc độ gõ trên 200 wpm.
                         </text>
 
                         <div style={styles.question_container}>
 
                             <text style={styles.question}>
-                                What do you want ?
+                                Tôi muốn tìm
                             </text>
                         </div>
 
@@ -34,7 +34,7 @@ export default class HomeBannerComponent extends Component {
                             to={routePaths.TASK_SEARCH}
                             style={styles.btn_container}>
                             <ButtonInputComponent 
-                                btn_label='Search' />
+                                btn_label='Tìm' />
                         </Link>
                     
                     </div>

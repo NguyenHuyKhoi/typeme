@@ -18,6 +18,7 @@ import LessonListScreen from './screens/lesson_list.screen';
 import EditorScreen from './screens/editor.screen';
 import RoomHistoryScreen from './screens/room_history.screen';
 import RoomPlayScreen from './screens/room_play.screen';
+import StatisticScreen from './screens/statistic.screen';
 
 
 
@@ -41,6 +42,7 @@ export default class  App extends Component {
 							<Route path={routePaths.EDITOR} component={EditorScreen}/>
 							<Route path={routePaths.ROOM_HISTORY} component={RoomHistoryScreen}/>
 							<Route path={routePaths.ROOM_PLAY} component={RoomPlayScreen}/>
+							<Route path={routePaths.STATISTIC} component={StatisticScreen}/>
 
 
 

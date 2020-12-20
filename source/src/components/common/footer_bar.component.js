@@ -16,57 +16,57 @@ export default class FooterBarComponent extends Component {
 
                 <div style={styles.row1}>
                     <text style={styles.big_text}>
-                        About us
+                        Về chúng tôi
                     </text>
                     <text style={styles.normal_text}>
-                        The best platform for freelancers and companies ,and more....
+                        5 thành viên từ nhóm HCI_11
                     </text>
                 </div>
 
                 <div style={styles.row2}>
                     
                     <div style={styles.row2_col1}>
-                        <text style={styles.normal_text}>
-                            HIREME
+                        <Link to={routePaths.HOME} style={styles.normal_text}>
+                            TypeMe
+                        </Link>
+                        <text style={styles.small_text}>
+                            Liên hệ
                         </text>
                         <text style={styles.small_text}>
-                            Contact us: 
-                        </text>
-                        <text style={styles.small_text}>
-                            hireme.contact@gmail.com
+                            TypeMe.contact@gmail.com
                         </text>
                     </div>
 
                     <div style={styles.row2_col2}>
 
                         <text style={styles.normal_text}>
-                            Usefull links
+                            Chức năng hữu ích
                         </text>
 
                         <div style={styles.link_container}>
                             <div style={styles.link_sub_container}>
                                 <Link
-                                    to={routePaths.TASK_SEARCH}
+                                    to={routePaths.PRACTICE}
                                     style={styles.small_text}>
-                                    Find Tasks 
+                                    Luyện gõ
                                 </Link>
                                 <Link
-                                    to={routePaths.FREELANCER_SEARCH}
+                                    to={routePaths.EDITOR}
                                     style={styles.small_text}>
-                                    Find Freelancers 
+                                    Soạn thảo
                                 </Link>
                             </div>
 
                             <div style={styles.link_sub_container}>
                                 <Link
-                                    to={routePaths.HOME}
+                                    to={routePaths.ROOM_LIST}
                                     style={styles.small_text}>
-                                    Guides
+                                    Thi đấu
                                 </Link>
                                 <Link
-                                    to={routePaths.HOME}
+                                    to={routePaths.STATISTIC}
                                     style={styles.small_text}>
-                                    About us 
+                                    Thống kê
                                 </Link>
                             </div>
                         </div>
@@ -74,11 +74,11 @@ export default class FooterBarComponent extends Component {
 
                     <div style={styles.row2_col3}>
                         <text style={{...styles.normal_text,marginTop:10}}>
-                            Register news from us :
+                            Đăng ký nhận email :
                         </text>
 
                         <div style={styles.email_register}>
-                            <input style={styles.email_input} placeholder='Enter your email ...'/>
+                            <input style={styles.email_input} placeholder='Điền email...'/>
 
                             <div style={styles.btn_container}>
                                 <ButtonComponent label={'->'} height={35}/>

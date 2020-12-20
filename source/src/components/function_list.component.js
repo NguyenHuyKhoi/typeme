@@ -1,23 +1,35 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../../utils/constants'
-import { BLACK } from '../../utils/palette'
-import CategoryItemComponent from './category_item.component'
+import { routePaths, TEXT_SIZES } from '../utils/constants'
+import { BLACK } from '../utils/palette'
+import FunctionItemComponent from './function_item.component'
+import sample_db from '../sample_db/sample_db.json'
 
-export default class CategoryTopListComponent extends Component {
+const functions=sample_db.functions;
+
+const links=[
+    routePaths.PRACTICE,
+    routePaths.PRACTICE,
+    routePaths.STATISTIC,
+    routePaths.EDITOR,
+    routePaths.STATISTIC,
+    routePaths.ROOM_LIST,
+    routePaths.FEEDBACK,
+    routePaths.SETTING
+]
+export default class FunctionListComponent extends Component {
     render(){
-        const categories=this.props.categories;
         return (
             <div style={styles.container}>
 
             <text style={styles.title}>
-                Popular Task Categories 
+                Tại đây, bạn có thể : 
             </text>
 
             <div style={styles.body}>
                 {
-                    categories.map((item,index)=>
-                        <CategoryItemComponent key={''+index} category={item} index={index}/>
+                    functions.map((item,index)=>
+                        <FunctionItemComponent link={links[index]} key={''+index} item={item} index={index}/>
                     )
                 }
             </div>  

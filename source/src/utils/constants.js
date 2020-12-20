@@ -33,16 +33,17 @@ export const bullshitIcons={
 
 export const routePaths={
     HOME:'/',
-    PRACTICE:'/practice',
-    FEEDBACK:'/feedback',
-    ROOM_LIST:'/room/list',
-    ROOM_DETAIL:'/room/detail',
-    ROOM_RESULT:'/room/result',
-    SETTING:'/setting',
-    LESSON_LIST:'/lesson/list',
-    EDITOR:'/editor',
-    ROOM_HISTORY:'/room/history',
-    ROOM_PLAY:'/room/play'
+    PRACTICE:'/thuc_hanh',
+    FEEDBACK:'/gop_y',
+    ROOM_LIST:'/thi_dau/danh_sach_phong',
+    ROOM_DETAIL:'/thi_dau/phong',
+    ROOM_RESULT:'/thi_dau/ket__qua',
+    SETTING:'/cai_dat',
+    LESSON_LIST:'/bai_hoc/danh_sach',
+    EDITOR:'/soan_thao',
+    ROOM_HISTORY:'/thi_dau/lich_su',
+    ROOM_PLAY:'/thi_dau/choi',
+    STATISTIC:'/thong_ke'
 }
 
 

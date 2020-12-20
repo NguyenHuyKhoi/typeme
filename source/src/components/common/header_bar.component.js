@@ -31,7 +31,7 @@ const headerBarItems=[
     },
     {
         label:'Thống kê',
-        screen:routePaths.HOME,
+        screen:routePaths.STATISTIC,
     },
     {
         label:'Góp ý',
@@ -80,9 +80,10 @@ class HeaderBarComponent extends Component {
                         onClickClose={this.closeAuthModal}/>
                 </Modal>
                 
-                <div style={styles.col1}>
-                    <img src={logo} style={styles.logo}/>
-                </div>
+                <Link to={routePaths.HOME} style={{...styles.col1,textDecoration:'none'}}>
+                        <img src={logo} style={styles.logo}/>
+                    
+                </Link>
 
                 <div style={styles.col2}>
 

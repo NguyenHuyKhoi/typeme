@@ -7,7 +7,7 @@ import {IconContext} from 'react-icons'
 import SmallFieldComponent from '../common/small_field.component'
 
 
-export default class CategoryItemComponent extends Component {
+export default class FunctionItemComponent extends Component {
     constructor(props){
         super(props);
         this.state={
