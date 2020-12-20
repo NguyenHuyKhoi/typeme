@@ -17,7 +17,8 @@ const initial_user_info={
     word_state:practice_lessons[0][0].content.split(" ").map(item=>WORD_STATE.NOT_TYPED),
     current_word_index:0,
     correct_words:0,
-    reset_timer:true
+    reset_timer:true,
+    choosed_header_item:0
 };
 
 let userReducer=(state=initial_user_info,action)=>{
@@ -115,6 +116,12 @@ let userReducer=(state=initial_user_info,action)=>{
             return {
                 ...state,
                 reset_timer:false
+            }
+        case USER_ACTIONS.CHOOSE_HEADER_ITEM:
+            let index=payload.index
+            return {
+                ...state,
+                choosed_header_item:index
             }
 
         default :

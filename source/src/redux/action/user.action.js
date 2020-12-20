@@ -8,6 +8,13 @@ export const chooseLessonIndex=(payload)=>{
     }
 }
 
+export const chooseHeaderItem=(payload)=>{
+    console.log('choose_lesson:',payload);
+    return {
+        type:USER_ACTIONS.CHOOSE_HEADER_ITEM,
+        payload:payload
+    }
+}
 export const choosePracticeMode=(payload)=>{
     console.log('action choose_practice_mode:',payload);
     return {

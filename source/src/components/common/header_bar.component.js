@@ -88,7 +88,7 @@ class HeaderBarComponent extends Component {
                 <div style={styles.col2}>
 
                 {
-                    headerBarItems.map((item) => 
+                    headerBarItems.map((item,index) => 
                         // let defautColor = WHITE;
                         // if (window.location.pathname === item.screen) {
                         //     defautColor = YELLOW_1;
@@ -99,9 +99,13 @@ class HeaderBarComponent extends Component {
         //                                 onClick={e => this.changeBackground(e, GREEN_2)}
         //                                 style={{background: defautColor}}
         //  >
-                            <Link to={item.screen}
-                                style={styles.item}>
-                            {item.label}
+                            <Link 
+                                to={item.screen}
+                                onClick={()=>this.props.chooseHeaderItem({index:index})}
+                                style={{...styles.item,
+                                        color:this.props.user_infor.choosed_header_item===index?
+                                        BLUE_1:BLACK}}>
+                                {item.label}
                             </Link>
 
                         // </button>);
@@ -109,10 +113,7 @@ class HeaderBarComponent extends Component {
                         // })
                     )}
                     </div>
-                </div>
-                    
-
-            
+                </div> 
         )
     }
 }
