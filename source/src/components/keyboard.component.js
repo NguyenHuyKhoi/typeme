@@ -208,7 +208,7 @@ export default class KeyboardComponent extends Component{
                                             this.state.wrong_button===button.char_2?
                                                 STENO_BUTTON_STATE.WRONG
                                                 :
-                                                this.isHightlightButton(button)?
+                                                layer_index>0 && this.isHightlightButton(button)?
                                                     STENO_BUTTON_STATE.HIGHLIGHT
                                                     :
                                                     STENO_BUTTON_STATE.NONE
