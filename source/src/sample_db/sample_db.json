@@ -468,5 +468,10 @@
             "tagline":"",
             "content":"Đây như một công cụ hỗ trợ để mình và các đồng chí khác dẹp loạn trên mạng. Cảm ơn NPH !!!"
         }
-    ]
+    ],
+    "account":{
+        "firstname":"Lê Thanh",
+        "lastname":"Hà",
+        "email":"lethanh@gmail.com"
+    }
 }

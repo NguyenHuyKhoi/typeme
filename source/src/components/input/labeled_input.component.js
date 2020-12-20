@@ -20,7 +20,7 @@ export default class LabeledInputComponent extends Component {
     
     
     render(){
-        const value=this.state.value;
+        const value=this.props.value;
 
         const inline=this.props.inline!==undefined?this.props.inline:false;
         const label=this.props.label!==undefined?this.props.label:''
@@ -43,6 +43,7 @@ export default class LabeledInputComponent extends Component {
                         this.setState({value:e.target.value});
                         this.props.onChange(e.target.value)
                     }}
+                    value={value}
                     style={{
                         ...styles.input,
                         fontSize: TEXT_SIZES.NORMAL,

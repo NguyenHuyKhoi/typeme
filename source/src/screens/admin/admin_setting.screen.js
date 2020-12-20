@@ -4,7 +4,6 @@ import ChatComponent from '../../components/chat/chat.component'
 import LabeledSelectedInputComponent from '../../components/input/labeled_selected_input.component'
 import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
-import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileCompanyComponent from '../../components/setting/setting_profile_company.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
@@ -113,12 +112,6 @@ class AdminSettingScreen extends Component {
 
                     <HeaderListComponent title='Setting'/>
 
-                    <div style={{marginTop:30}}>
-                        <SettingAccountComponent    
-                            updateInputs={this.updateInputs}
-                            account={setting.account}/>
-                    </div>
-                
                     <div style={{marginTop:60}}>
                         <SettingPasswordComponent
                             updateInputs={this.updateInputs}

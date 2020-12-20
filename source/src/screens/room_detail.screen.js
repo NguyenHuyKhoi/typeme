@@ -6,7 +6,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 
 import { BODY, routePaths, TEXT_SIZES } from '../utils/constants';
-import { BLACK } from '../utils/palette';
+import { BLACK ,GRAY_6} from '../utils/palette';
 import UserListComponent from '../components/user_list.component';
 
 import sample_db from '../sample_db/sample_db.json'
@@ -57,7 +57,8 @@ const styles={
         width:'100vw',
         height:'100vh',
         display:'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: GRAY_6
     },
     body:{
         width:'100vw',

@@ -4,6 +4,7 @@ import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,
     FaPaypal, FaBroom,FaUser,FaTasks,FaFacebookMessenger,FaStreetView,FaSignOutAlt,
     FaArrowDown,
     FaArrowUp} from "react-icons/fa"
+import { GRAY_2, GREEN_1, YELLOW_1 } from "./palette"
 export const BASE_URL='https://localhost:3000'
 export const bullshitIcons={
     home :<FaHome/>,
@@ -98,6 +99,8 @@ export const CVV_DOMAIN=[0,999]
 export const BUSINESS_AREA_DOMAIN=['Strategy','Marketing','Finance','Human resources','Technology','Operations','Education','Others']
 export const COMPANY_SIZES_DOMAIN=[ '0 - 10', '10 - 50', '50 - 100', '100 - 500','Over 500']
 export const TASKS_TYPE_DOMAIN=['Fixed Price','Hourly Rate']
+
+
 
 export const CATEGORIES_DOMAIN=[
     {

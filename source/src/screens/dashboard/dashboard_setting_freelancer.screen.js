@@ -1,7 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
 import SidebarComponent from '../../components/common/side_bar.component'
-import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
 import { routePaths, SIDEBAR_RATIO ,PADDING_BODY_DASHBOARD, CATEGORIES_DOMAIN} from '../../utils/constants'
@@ -117,11 +116,6 @@ class DashboardSettingFreelancerScreen extends Component {
 
                     <HeaderListComponent title='Setting'/>
 
-                    <div style={{marginTop:30}}>
-                        <SettingAccountComponent    
-                            updateInputs={this.updateInputs}
-                            account={setting.account}/>
-                    </div>
 
                     <div style={{marginTop:60}}>
                         <SettingProfileFreelancerComponent 

@@ -1,8 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 
-import SettingAccountComponent from '../components/setting/setting_account.component'
-import SettingProfileCompanyComponent from '../components/setting/setting_profile_company.component'
+import SettingAccountComponent from '../components/setting_account.component'
 import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD } from '../utils/constants'
 import { GRAY_6 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'
@@ -13,6 +12,7 @@ import {BODY} from '../utils/constants'
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
 import HeaderBarComponent from '../components/common/header_bar.component'
+import SettingCustomizeComponent from '../components/setting_customize.component'
 const setting=api.get_setting_company
 export default class SettingScreen extends Component {
  
@@ -31,13 +31,11 @@ export default class SettingScreen extends Component {
                         <HeaderListComponent title='Cài đặt'/>
 
                         <div style={{marginTop:30}}>
-                            <SettingAccountComponent 
-                                    updateInputs={this.updateInputs}
-                                account={setting.account}/>
+                            <SettingAccountComponent />
                         </div>
                         
                         <div style={{marginTop:60}}>
-                            <SettingProfileCompanyComponent 
+                            <SettingCustomizeComponent 
                                 profile={setting.profile}/>
                         </div>
 
@@ -71,7 +69,8 @@ const styles={
         width:'100vw',
         height:'100vh',
         display:'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: GRAY_6
     },
     body:{
         width:'100vw',

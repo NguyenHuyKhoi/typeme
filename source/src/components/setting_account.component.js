@@ -1,17 +1,19 @@
 //import from library 
 import React, {Component} from 'react'
-import { WHITE } from '../../utils/palette'
-import HeaderListComponent from '../common/header_list.component'
+import { WHITE } from './../utils/palette'
+import HeaderListComponent from './common/header_list.component'
 
-import LabeledInputComponent from '../input/labeled_input.component'
-import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
+import LabeledInputComponent from './input/labeled_input.component'
+import LabeledSelectedInputComponent from './input/labeled_selected_input.component'
 
+import avatar from '../assets/images/kol_review3.jpg'
+import sample_db from '../sample_db/sample_db.json'
 
+const account=sample_db.account
 export default class SettingAccountComponent extends Component {
    
 
     render(){
-        const account=this.props.account
         return (
             <div style={styles.container}>
 
@@ -19,7 +21,7 @@ export default class SettingAccountComponent extends Component {
 
                 <div style={styles.body}>
 
-                        <img src={account.avatar_url} style={styles.avatar}/>
+                        <img src={avatar} style={styles.avatar}/>
 
                         <div style={styles.content}>
 
@@ -28,7 +30,7 @@ export default class SettingAccountComponent extends Component {
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
                                         label='Họ'
-                                        value={'Lê Đức'}/>
+                                        value={account.firstname}/>
                                 </div>
 
                                 <div style={{flex:2}}/>
@@ -36,7 +38,7 @@ export default class SettingAccountComponent extends Component {
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
                                         label='Tên'
-                                        value={'Bình'}/>
+                                        value={account.lastname}/>
                                 </div>
                                
                             </div>
@@ -44,7 +46,7 @@ export default class SettingAccountComponent extends Component {
                             <div style={styles.row2}>
                                 <LabeledInputComponent 
                                     label='Email'
-                                    value={'ducbinh@gmail.com'}/>
+                                    value={account.email}/>
                             </div>
                          
                         </div>
@@ -79,9 +81,9 @@ const styles={
         alignItems:'center'
     },
     avatar:{
-        height:'60%',
-        aspectRatio:1,
-        borderRadius:10
+        height:100,
+        width: 100,
+        borderRadius:50
     },
     content:{
         marginLeft:40,

@@ -7,7 +7,7 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
 import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
-import { BLACK } from '../utils/palette';
+import { BLACK ,GRAY_6} from '../utils/palette';
 import {BASE_URL} from '../utils/constants'
 import axios from 'axios'
 import PracticeTabsBarComponent from '../components/common/practice_tabs.component';
@@ -139,7 +139,8 @@ const styles={
         width:'100vw',
         height:'100vh',
         display:'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: GRAY_6
     },
     body:{
         width:'100vw',

@@ -1,8 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
 
-import SettingAccountComponent from '../components/setting/setting_account.component'
-import SettingProfileCompanyComponent from '../components/setting/setting_profile_company.component'
 import { routePaths, SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, BODY } from '../utils/constants'
 import { GRAY_2, GRAY_6,GREEN_1,RED_1,WHITE, YELLOW_1 } from '../utils/palette'
 import HeaderListComponent from '../components/common/header_list.component'

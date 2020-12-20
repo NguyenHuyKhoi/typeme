@@ -8,7 +8,7 @@ import FeedbackListComponent from '../components/room_list.component';
 
 import api from '../sample_db/fake_api_responses.json'
 import { BODY, TEXT_SIZES } from '../utils/constants';
-import { BLACK } from '../utils/palette';
+import { BLACK ,GRAY_6} from '../utils/palette';
 import RoomHistoryListComponent from '../components/room_history_list.component';
 
 
@@ -49,7 +49,8 @@ const styles={
         width:'100vw',
         height:'100vh',
         display:'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: GRAY_6
     },
     body:{
         width:'100vw',

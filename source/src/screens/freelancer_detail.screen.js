@@ -10,7 +10,7 @@ import FreelancerDetailHeaderComponent from '../components/freelancer/freelancer
 import ReviewListComponent from '../components/task/review_list.component';
 import banner from '../assets/images/banner.jpg'
 import DescriptionComponent from '../components/common/description.component';
-import { WHITE } from '../utils/palette';
+import { WHITE,GRAY_6 } from '../utils/palette';
 // import SkillsListComponent from '../components/common/skills_list.component';
 
 import api from '../sample_db/fake_api_responses.json'
