@@ -50,6 +50,7 @@ const styles={
         justifyContent: 'space-between'
     },
     title:{
+
         fontSize:TEXT_SIZES.BIG,
         color:WHITE,
         marginLeft:20,
